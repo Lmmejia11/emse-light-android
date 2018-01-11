@@ -1,0 +1,2975 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://developer.android.com/reference/android/content/BroadcastReceiver.html -->
+<html lang="es-419" itemscope="" itemtype="http://schema.org/Article"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+
+
+
+
+<script async="" src="./BroadcastReceiver _ Android Developers_files/async-ads.js.téléchargement"></script><script type="text/javascript" async="" src="./BroadcastReceiver _ Android Developers_files/linkid.js.téléchargement"></script><script async="" src="./BroadcastReceiver _ Android Developers_files/analytics.js.téléchargement"></script><script type="text/javascript" async="" src="./BroadcastReceiver _ Android Developers_files/recaptcha__es_419.js.téléchargement"></script><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script>
+
+
+
+
+
+<meta name="xsrf_token" content="mflLOV-anyRTeBoD30rFl-GM3SVRVcXEiFctmEXBxO06MTUxNTA4MTMxNjMwNDM5MA">
+
+  
+    <link rel="canonical" href="https://developer.android.com/reference/android/content/BroadcastReceiver.html">
+  
+
+  
+    <link rel="alternate" href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" hreflang="en">
+  
+    <link rel="alternate" href="https://developer.android.google.cn/reference/android/content/BroadcastReceiver.html" hreflang="en-cn">
+  
+
+  <link rel="alternate" href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" hreflang="x-default">
+
+
+
+
+<link rel="shortcut icon" href="https://developer.android.com/_static/0d76052693/images/android/favicon.png">
+
+<link rel="apple-touch-icon" href="https://developer.android.com/_static/0d76052693/images/android/touchicon-180.png">
+
+
+<title>
+
+  BroadcastReceiver | Android Developers
+
+</title>
+
+
+
+  <meta itemprop="dateModified" content="2017-12-04T20:28:07.769270">
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="./BroadcastReceiver _ Android Developers_files/css">
+<link rel="stylesheet" href="./BroadcastReceiver _ Android Developers_files/css(1)" title="roboto">
+<link rel="stylesheet" href="./BroadcastReceiver _ Android Developers_files/dac-devsite.css">
+
+
+
+
+
+
+
+<link href="./BroadcastReceiver _ Android Developers_files/default.css" rel="stylesheet" type="text/css">
+<!-- JAVASCRIPT -->
+<script src="./BroadcastReceiver _ Android Developers_files/android_3p-bundle.js.téléchargement" type="text/javascript"></script>
+<script src="./BroadcastReceiver _ Android Developers_files/script_foot_closure_android__es_419.js.téléchargement"></script>
+<script src="./BroadcastReceiver _ Android Developers_files/script_foot_android.js.téléchargement"></script>
+
+<script type="text/javascript">
+  var toRoot = '/';
+  devsite.permissions.init({"f62218c009ec029abef196bba5aa34cf": true, "098dafe57affddc137df300142652cfd": false, "8e03e230de0bd8a6fe173fdf172e8b3f": true, "cb025a64a50094835616312f4774a53d": true, "51470233c56fc1fde50f00b73c52b216": false, "d169d485cf24243a263783dbe42029b1": true, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true});
+
+  var replaceBlog = false;
+  var replaceYouTube = false;
+  var siteDefaultLocale = 'en';
+
+  var ANDROID_LANGUAGES = [
+      'id','de','en','es','es-419','fr','pt-br','vi','tr','ru','th','ja','zh-cn','zh-tw','ko'
+  ];
+</script>
+<script src="./BroadcastReceiver _ Android Developers_files/docs.js.téléchargement" type="text/javascript"></script>
+
+
+<script src="./BroadcastReceiver _ Android Developers_files/jsapi" type="text/javascript"></script><link type="text/css" href="./BroadcastReceiver _ Android Developers_files/default+en.css" rel="stylesheet"><link type="text/css" href="./BroadcastReceiver _ Android Developers_files/default(1).css" rel="stylesheet"><script type="text/javascript" src="./BroadcastReceiver _ Android Developers_files/default+en.I.js.téléchargement"></script><style type="text/css">.gsc-control-cse{font-family:Arial, sans-serif;border-color:#ECEFF1;background-color:#ECEFF1}.gsc-control-cse .gsc-table-result{font-family:Arial, sans-serif}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}input.gsc-search-button,input.gsc-search-button:hover,input.gsc-search-button:focus{border-color:#2F5BB7;background-color:#357AE8;background-image:none;filter:none}.gsc-tabHeader.gsc-tabhInactive{border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhActive{border-color:#CCCCCC;border-bottom-color:#FFFFFF;background-color:#FFFFFF}.gsc-tabsArea{border-color:#CCCCCC}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#ECEFF1;background-color:#ECEFF1}.gsc-webResult.gsc-result:hover,.gsc-imageResult:hover{border-color:#ECEFF1;background-color:#ECEFF1}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#039BE5}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#039BE5}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#039BE5}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#039BE5}.gsc-cursor-page{color:#039BE5}a.gsc-trailing-more-results:link{color:#039BE5}.gs-webResult .gs-snippet,.gs-imageResult .gs-snippet,.gs-fileFormatType{color:#333333}.gs-webResult div.gs-visibleUrl,.gs-imageResult div.gs-visibleUrl{color:#333333}.gs-webResult div.gs-visibleUrl-short{color:#333333}.gs-webResult div.gs-visibleUrl-short{display:none}.gs-webResult div.gs-visibleUrl-long{display:block}.gs-promotion div.gs-visibleUrl-short{display:none}.gs-promotion div.gs-visibleUrl-long{display:block}.gsc-cursor-box{border-color:#ECEFF1}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#ECEFF1;color:#039BE5}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#039BE5}.gsc-webResult.gsc-result.gsc-promotion{border-color:#F6F6F6;background-color:#F6F6F6}.gsc-completion-title{color:#039BE5}.gsc-completion-snippet{color:#333333}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#1155CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#1155CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#1155CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#1155CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#666666}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#039BE5}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:5.5px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body class="gc-documentation             api apilevel-1                            develop               reference                           dac-nav-open">
+  
+
+
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Reference&quot;, &quot;dimension5&quot;: &quot;es-419&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}">
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Reference&quot;, &quot;dimension5&quot;: &quot;es-419&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}">
+  
+
+
+
+  
+  
+    <script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "CO", "language": {"requested": "es-419", "served": "en"}, "projectName": "Reference", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+  
+
+
+
+  
+  <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#top" id="skip-to-main">Skip to content</a>
+  <header id="header-wrapper">
+    <div class="dac-header" id="header">
+      <div class="dac-header-inner">
+        
+        <a class="dac-nav-toggle" data-dac-toggle-nav="" href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        
+        <a class="dac-header-logo" href="https://developer.android.com/index.html">
+          <img class="dac-header-logo-image" src="./BroadcastReceiver _ Android Developers_files/android_logo.png" srcset="https://developer.android.com/static/images/android_logo_2x.png 2x" width="32" height="36" alt="Android"> Developers</a>
+        <ul class="dac-header-tabs">
+          <li>
+            <a class="dac-header-tab" href="https://developer.android.com/design/index.html" zh-tw-lang="設計" zh-cn-lang="设计" ru-lang="Проектирование" ko-lang="디자인" ja-lang="設計" es-lang="Diseñar">
+              
+              Design</a>
+          </li>
+          <li>
+            <a class="dac-header-tab selected" href="https://developer.android.com/develop/index.html" zh-tw-lang="開發" zh-cn-lang="开发" ru-lang="Разработка" ko-lang="개발" ja-lang="開発" es-lang="Desarrollar">
+              
+              Develop</a>
+          </li>
+          <li>
+            <a class="dac-header-tab" href="https://developer.android.com/distribute/index.html" zh-tw-lang="發佈" zh-cn-lang="分发" ru-lang="Распространение" ko-lang="배포" ja-lang="配布" es-lang="Distribuir">
+              
+              Distribute</a>
+          </li>
+        </ul>
+
+
+        
+
+        <a class="dac-header-console-btn gc-analytics-event" href="https://play.google.com/apps/publish/" data-category="User" data-action="Console" data-label="Clicked">
+          
+          <img src="./BroadcastReceiver _ Android Developers_files/developer-console-icon.svg" width="18" height="19" alt="">Play Console</a>
+        
+
+<form data-search="" class="dac-header-search">
+  <button class="dac-header-search-close" data-search-close="">
+    <i class="dac-sprite dac-back-arrow"></i>
+  </button>
+
+  <div class="dac-header-search-inner">
+    <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+    
+    <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Buscar">
+    <button class="dac-header-search-clear dac-hidden" data-search-clear="">
+      <i class="dac-sprite dac-close-black"></i>
+    </button>
+  </div>
+</form>
+
+        
+      </div><!--/.header-wrap.wrap-->
+    </div><!--/.header-->
+
+    
+
+<div id="search-results" class="dac-search-results">
+  <div id="dac-search-results-history" class="dac-search-results-history">
+    <div class="wrap dac-search-results-history-wrap">
+      <div class="cols">
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          
+          <h2 style="padding-bottom: 0px;">Most visited</h2><hr>
+          <div class="resource-flow-layout cols" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"><div class="resource-flow-page"><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-develop" href="https://developer.android.com/training/basics/firstapp/running-app.html"><div class="card-bg" style="background-image: url(&quot;/images/tools/as-run.png&quot;);"></div><div class="card-info"><div class="section">training</div><div class="title">Ejecutar tu app</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">In the previous lesson , you created an Android project that displays "Hello World." You can now run the app on a real device or on an emulator. If you don't have a real device available, skip to Run on an Emulator . Set up your device as…</div></div></div></a></div><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-develop" href="https://developer.android.com/training/basics/firstapp/starting-activity.html"><div class="card-bg" style="background-image: url(&quot;/training/basics/firstapp/images/constraint-textview_2x.png&quot;);"></div><div class="card-info"><div class="section">training</div><div class="title">Iniciar otra activity</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">After completing the previous lesson , you have an app that shows an activity (a single screen) with a text field and a button. In this lesson, you’ll add some code to MainActivity that starts a new activity when the user clicks the Send button. This …</div></div></div></a></div><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-android studio" href="https://developer.android.com/studio/run/managing-avds.html"><div class="card-bg" style="background-image: url(&quot;/studio/images/buttons/toolbar-avd-manager.png&quot;);"></div><div class="card-info"><div class="section">android studio</div><div class="title">Crear y administrar dispositivos virtuales</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">La definición de un Android Virtual Device (AVD) te permite definir las características de un teléfono Android, una tablet, o un dispositivo Android Wear o Android TV que desees simular en Android Emulator . El Administrador de AVD te permite crear…</div></div></div></a></div></div></div>
+        </div>
+
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          
+          <h2 style="padding-bottom: 0px;">Recently visited</h2><hr>
+          <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"><div class="resource-flow-page"><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-develop" href="https://developer.android.com/training/volley/request.html"><div class="card-bg" style="background-image: url(&quot;/static/images/resource-card-default-android.jpg&quot;);"></div><div class="card-info"><div class="section">training</div><div class="title">Making a Standard Request</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">Volley: Easy, Fast Networking for Android This lesson describes how to use the common request types that Volley supports: If your expected response is one of these types, you probably won't have to implement a custom request. This lesson describes…</div></div></div></a></div><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-develop" href="https://developer.android.com/training/volley/request-custom.html"><div class="card-bg" style="background-image: url(&quot;/static/images/resource-card-default-android.jpg&quot;);"></div><div class="card-info"><div class="section">training</div><div class="title">Implementing a Custom Request</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">Volley: Easy, Fast Networking for Android This lesson describes how to implement your own custom request types, for types that don't have out-of-the-box Volley support. For cases where you do need to implement a custom request, this is all you need…</div></div></div></a></div><div class="col-6of6"><a class="resource resource-card resource-card-18x2 resource-card-develop" href="https://developer.android.com/training/building-location.html"><div class="card-bg" style="background-image: url(&quot;/static/images/resource-card-default-android.jpg&quot;);"></div><div class="card-info"><div class="section">training</div><div class="title">Building Apps with Location &amp; Maps</div><div class="description ellipsis" style="height: 20px;"><div class="text" style="height: auto;">These classes teach you how to add user location and mapping information to your app. Make your app more helpful and relevant to users by providing information about where they are and the world around them.…</div></div></div></a></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dac-search-results-content" class="dac-search-results-content">
+    <div class="dac-search-results-metadata wrap">
+      <div class="dac-search-results-for">
+          <h2 style="padding-bottom: 0px;">
+          
+          Results for <span id="search-results-for"></span>
+          </h2><hr>
+      </div>
+
+      <div id="dac-search-results-hero"></div>
+
+      <div class="dac-search-results-hero cols">
+        <div id="dac-search-results-reference" class="col-6of6 col-tablet-2of2 col-mobile-1of1">
+          <div class="suggest-card reference no-display">
+            <ul class="dac-search-results-reference">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols dac-search-results-cse">
+        <script src="./BroadcastReceiver _ Android Developers_files/cse.js.téléchargement" async=""></script>
+        <div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr" style="visibility: hidden;"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8" style="display: none;"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="en" dir="ltr" spellcheck="false" placeholder="Custom Search"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./BroadcastReceiver _ Android Developers_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./BroadcastReceiver _ Android Developers_files/googlelogo_grey_46x15dp.png" class="gsc-branding-img" srcset="https://www.google.com/cse/static/images/2x/googlelogo_grey_46x15dp.png 2x"></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+
+  <a name="navigation" tabindex="0" class="nav-start-marker">navigation</a>
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav=""></div>
+    <div class="dac-nav-sidebar" data-swap="" data-dynamic="false" data-transition-speed="300" data-dac-nav="">
+      <div data-swap-container="">
+        
+        <a class="dac-nav-back-button dac-swap-section dac-up dac-active" tabindex="0" data-swap-button="">
+          
+          
+          <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">
+          
+          Referencia</span>
+        </a>
+
+        <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+          
+          
+            
+              
+              <button data-fullscreen="" class="dac-nav-fullscreen">
+                <i class="dac-sprite dac-fullscreen"></i>
+              </button>
+              <script>$('[data-fullscreen]').dacFullscreen();</script>
+              <div id="devdoc-nav">
+                <div id="api-nav-header">
+                  <div id="api-level-toggle">
+                    <label for="apiLevelCheckbox" class="disabled" title="Select your target API level to dim unavailable APIs">
+                        
+                        API:
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="apiLevelSelector"><option value="27" selected="true">27</option><option value="26">26</option><option value="25">25</option><option value="24">24</option><option value="23">23</option><option value="22">22</option><option value="21">21</option><option value="20">20</option><option value="19">19</option><option value="18">18</option><option value="17">17</option><option value="16">16</option><option value="15">15</option><option value="14">14</option><option value="13">13</option><option value="12">12</option><option value="11">11</option><option value="10">10</option><option value="9">9</option><option value="8">8</option><option value="7">7</option><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+                    </div>
+                  </div><!-- end toggle -->
+                  <div id="api-nav-title">
+                    <select id="reference-selector" style="max-width: 150px;">
+                      
+                      <option value="android">Android Platform</option>
+                      
+                      
+                      <option value="android/support">Android Support Library</option>
+                      
+                      
+                      <option value="android/arch">Architecture Components</option>
+                      
+                      <option value="android/support/constraint">Constraint Library</option>
+                      
+                      
+                      <option value="com/android/billingclient">Play Billing Library</option>
+                      
+                      <option value="android/support/test">Test Support Library</option>
+                      
+                      <option value="android/support/wearable">Wearable Library</option>
+                    </select>
+                  </div>
+                </div><!-- end nav header -->
+                <script>
+                  buildApiLevelSelector();
+                  initReferenceSelector();
+                </script>
+                <div class="dac-reference-nav" data-reference-tree="">
+                  <ul class="dac-reference-nav-list" data-reference-namespaces="">
+                    <li class="api no-toggle"><a href="https://developer.android.com/reference/classes.html">Class Index</a></li><li class="api no-toggle"><a href="https://developer.android.com/reference/packages.html">Package Index</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/package-summary.html" class="dac-reference-nav-toggle dac-closed">android</a></li><li class="api apilevel-4"><a href="https://developer.android.com/reference/android/accessibilityservice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.accessibilityservice</a></li><li class="api apilevel-5"><a href="https://developer.android.com/reference/android/accounts/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.accounts</a></li><li class="api apilevel-11"><a href="https://developer.android.com/reference/android/animation/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.animation</a></li><li class="api apilevel-16"><a href="https://developer.android.com/reference/android/annotation/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.annotation</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/app/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/android/app/admin/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app.admin</a></li><li class="api apilevel-23"><a href="https://developer.android.com/reference/android/app/assist/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app.assist</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/android/app/backup/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app.backup</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/app/job/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app.job</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/app/usage/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.app.usage</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/android/appwidget/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.appwidget</a></li><li class="api apilevel-5"><a href="https://developer.android.com/reference/android/bluetooth/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.bluetooth</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/bluetooth/le/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.bluetooth.le</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/companion/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.companion</a></li><li class="api apilevel-1 selected"><a href="https://developer.android.com/reference/android/content/package-summary.html" class="dac-reference-nav-toggle">android.content</a><ul data-reference-resources="" class="dac-reference-nav-resources" style="display: block;"><li><a href="https://developer.android.com/reference/android/content/package-summary.html" class="dac-reference-nav-resource">Overview</a></li>
+    
+    
+    <li><h2 tabindex="0" class="dac-reference-nav-toggle dac-closed">Interfaces</h2>
+      <ul class="dac-reference-nav-resources">
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ClipboardManager.OnPrimaryClipChangedListener.html" class="dac-reference-nav-resource">ClipboardManager.OnPrimaryClipChangedListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ComponentCallbacks.html" class="dac-reference-nav-resource">ComponentCallbacks</a></li>
+          <li class="api apilevel-14"><a href="https://developer.android.com/reference/android/content/ComponentCallbacks2.html" class="dac-reference-nav-resource">ComponentCallbacks2</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ContentProvider.PipeDataWriter.html" class="dac-reference-nav-resource">ContentProvider.PipeDataWriter</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.html" class="dac-reference-nav-resource">DialogInterface</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnCancelListener.html" class="dac-reference-nav-resource">DialogInterface.OnCancelListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnClickListener.html" class="dac-reference-nav-resource">DialogInterface.OnClickListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnDismissListener.html" class="dac-reference-nav-resource">DialogInterface.OnDismissListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnKeyListener.html" class="dac-reference-nav-resource">DialogInterface.OnKeyListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnMultiChoiceClickListener.html" class="dac-reference-nav-resource">DialogInterface.OnMultiChoiceClickListener</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/DialogInterface.OnShowListener.html" class="dac-reference-nav-resource">DialogInterface.OnShowListener</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/EntityIterator.html" class="dac-reference-nav-resource">EntityIterator</a></li>
+          <li class="api apilevel-4"><a href="https://developer.android.com/reference/android/content/IntentSender.OnFinished.html" class="dac-reference-nav-resource">IntentSender.OnFinished</a></li>
+          <li class="api apilevel-16"><a href="https://developer.android.com/reference/android/content/Loader.OnLoadCanceledListener.html" class="dac-reference-nav-resource">Loader.OnLoadCanceledListener</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/Loader.OnLoadCompleteListener.html" class="dac-reference-nav-resource">Loader.OnLoadCompleteListener</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ServiceConnection.html" class="dac-reference-nav-resource">ServiceConnection</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/SharedPreferences.html" class="dac-reference-nav-resource">SharedPreferences</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html" class="dac-reference-nav-resource">SharedPreferences.Editor</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener.html" class="dac-reference-nav-resource">SharedPreferences.OnSharedPreferenceChangeListener</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/SyncStatusObserver.html" class="dac-reference-nav-resource">SyncStatusObserver</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 tabindex="0" class="dac-reference-nav-toggle">Classes</h2>
+      <ul class="dac-reference-nav-resources" style="display: block;">
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter.html" class="dac-reference-nav-resource">AbstractThreadedSyncAdapter</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/AsyncQueryHandler.html" class="dac-reference-nav-resource">AsyncQueryHandler</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/AsyncQueryHandler.WorkerArgs.html" class="dac-reference-nav-resource">AsyncQueryHandler.WorkerArgs</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/AsyncQueryHandler.WorkerHandler.html" class="dac-reference-nav-resource">AsyncQueryHandler.WorkerHandler</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/AsyncTaskLoader.html" class="dac-reference-nav-resource">AsyncTaskLoader</a></li>
+          <li class="selected api apilevel-1"><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" class="dac-reference-nav-resource">BroadcastReceiver</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html" class="dac-reference-nav-resource">BroadcastReceiver.PendingResult</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ClipboardManager.html" class="dac-reference-nav-resource">ClipboardManager</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ClipData.html" class="dac-reference-nav-resource">ClipData</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ClipData.Item.html" class="dac-reference-nav-resource">ClipData.Item</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/ClipDescription.html" class="dac-reference-nav-resource">ClipDescription</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ComponentName.html" class="dac-reference-nav-resource">ComponentName</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContentProvider.html" class="dac-reference-nav-resource">ContentProvider</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/ContentProviderClient.html" class="dac-reference-nav-resource">ContentProviderClient</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/ContentProviderOperation.html" class="dac-reference-nav-resource">ContentProviderOperation</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/ContentProviderOperation.Builder.html" class="dac-reference-nav-resource">ContentProviderOperation.Builder</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/ContentProviderResult.html" class="dac-reference-nav-resource">ContentProviderResult</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContentQueryMap.html" class="dac-reference-nav-resource">ContentQueryMap</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContentResolver.html" class="dac-reference-nav-resource">ContentResolver</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContentUris.html" class="dac-reference-nav-resource">ContentUris</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContentValues.html" class="dac-reference-nav-resource">ContentValues</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/Context.html" class="dac-reference-nav-resource">Context</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ContextWrapper.html" class="dac-reference-nav-resource">ContextWrapper</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/CursorLoader.html" class="dac-reference-nav-resource">CursorLoader</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/Entity.html" class="dac-reference-nav-resource">Entity</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/Entity.NamedContentValues.html" class="dac-reference-nav-resource">Entity.NamedContentValues</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/Intent.html" class="dac-reference-nav-resource">Intent</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/Intent.FilterComparison.html" class="dac-reference-nav-resource">Intent.FilterComparison</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/Intent.ShortcutIconResource.html" class="dac-reference-nav-resource">Intent.ShortcutIconResource</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/IntentFilter.html" class="dac-reference-nav-resource">IntentFilter</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/IntentFilter.AuthorityEntry.html" class="dac-reference-nav-resource">IntentFilter.AuthorityEntry</a></li>
+          <li class="api apilevel-4"><a href="https://developer.android.com/reference/android/content/IntentSender.html" class="dac-reference-nav-resource">IntentSender</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/Loader.html" class="dac-reference-nav-resource">Loader</a></li>
+          <li class="api apilevel-11"><a href="https://developer.android.com/reference/android/content/Loader.ForceLoadContentObserver.html" class="dac-reference-nav-resource">Loader.ForceLoadContentObserver</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/MutableContextWrapper.html" class="dac-reference-nav-resource">MutableContextWrapper</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/PeriodicSync.html" class="dac-reference-nav-resource">PeriodicSync</a></li>
+          <li class="api apilevel-26"><a href="https://developer.android.com/reference/android/content/QuickViewConstants.html" class="dac-reference-nav-resource">QuickViewConstants</a></li>
+          <li class="api apilevel-18"><a href="https://developer.android.com/reference/android/content/RestrictionEntry.html" class="dac-reference-nav-resource">RestrictionEntry</a></li>
+          <li class="api apilevel-21"><a href="https://developer.android.com/reference/android/content/RestrictionsManager.html" class="dac-reference-nav-resource">RestrictionsManager</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider.html" class="dac-reference-nav-resource">SearchRecentSuggestionsProvider</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/SyncAdapterType.html" class="dac-reference-nav-resource">SyncAdapterType</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/SyncContext.html" class="dac-reference-nav-resource">SyncContext</a></li>
+          <li class="api apilevel-8"><a href="https://developer.android.com/reference/android/content/SyncInfo.html" class="dac-reference-nav-resource">SyncInfo</a></li>
+          <li class="api apilevel-19"><a href="https://developer.android.com/reference/android/content/SyncRequest.html" class="dac-reference-nav-resource">SyncRequest</a></li>
+          <li class="api apilevel-19"><a href="https://developer.android.com/reference/android/content/SyncRequest.Builder.html" class="dac-reference-nav-resource">SyncRequest.Builder</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/SyncResult.html" class="dac-reference-nav-resource">SyncResult</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/SyncStats.html" class="dac-reference-nav-resource">SyncStats</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/UriMatcher.html" class="dac-reference-nav-resource">UriMatcher</a></li>
+          <li class="api apilevel-19"><a href="https://developer.android.com/reference/android/content/UriPermission.html" class="dac-reference-nav-resource">UriPermission</a></li>
+      </ul>
+    </li>
+    
+    
+    <li><h2 tabindex="0" class="dac-reference-nav-toggle dac-closed">Exceptions</h2>
+      <ul class="dac-reference-nav-resources">
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ActivityNotFoundException.html" class="dac-reference-nav-resource">ActivityNotFoundException</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/IntentFilter.MalformedMimeTypeException.html" class="dac-reference-nav-resource">IntentFilter.MalformedMimeTypeException</a></li>
+          <li class="api apilevel-4"><a href="https://developer.android.com/reference/android/content/IntentSender.SendIntentException.html" class="dac-reference-nav-resource">IntentSender.SendIntentException</a></li>
+          <li class="api apilevel-5"><a href="https://developer.android.com/reference/android/content/OperationApplicationException.html" class="dac-reference-nav-resource">OperationApplicationException</a></li>
+          <li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/ReceiverCallNotAllowedException.html" class="dac-reference-nav-resource">ReceiverCallNotAllowedException</a></li>
+      </ul>
+    </li>
+    
+  </ul></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/pm/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.content.pm</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/content/res/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.content.res</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/database/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.database</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/database/sqlite/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.database.sqlite</a></li><li class="api apilevel-"><a href="https://developer.android.com/reference/android/databinding/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.databinding</a></li><li class="api apilevel-11"><a href="https://developer.android.com/reference/android/drm/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.drm</a></li><li class="api apilevel-4"><a href="https://developer.android.com/reference/android/gesture/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.gesture</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/graphics/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.graphics</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/graphics/drawable/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.graphics.drawable</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/graphics/drawable/shapes/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.graphics.drawable.shapes</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/graphics/fonts/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.graphics.fonts</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/graphics/pdf/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.graphics.pdf</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/hardware/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/hardware/camera2/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.camera2</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/hardware/camera2/params/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.camera2.params</a></li><li class="api apilevel-17"><a href="https://developer.android.com/reference/android/hardware/display/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.display</a></li><li class="api apilevel-23"><a href="https://developer.android.com/reference/android/hardware/fingerprint/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.fingerprint</a></li><li class="api apilevel-16"><a href="https://developer.android.com/reference/android/hardware/input/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.input</a></li><li class="api apilevel-12"><a href="https://developer.android.com/reference/android/hardware/usb/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.hardware.usb</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/icu/lang/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.icu.lang</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/icu/math/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.icu.math</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/icu/text/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.icu.text</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/icu/util/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.icu.util</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/android/inputmethodservice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.inputmethodservice</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/location/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.location</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/media/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media</a></li><li class="api apilevel-9"><a href="https://developer.android.com/reference/android/media/audiofx/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.audiofx</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/media/browse/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.browse</a></li><li class="api apilevel-14"><a href="https://developer.android.com/reference/android/media/effect/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.effect</a></li><li class="api apilevel-23"><a href="https://developer.android.com/reference/android/media/midi/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.midi</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/media/projection/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.projection</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/media/session/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.session</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/media/tv/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.media.tv</a></li><li class="api apilevel-12"><a href="https://developer.android.com/reference/android/mtp/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.mtp</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/net/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/net/http/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.http</a></li><li class="api apilevel-16"><a href="https://developer.android.com/reference/android/net/nsd/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.nsd</a></li><li class="api apilevel-12"><a href="https://developer.android.com/reference/android/net/rtp/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.rtp</a></li><li class="api apilevel-9"><a href="https://developer.android.com/reference/android/net/sip/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.sip</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/net/wifi/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/net/wifi/aware/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.aware</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/net/wifi/hotspot2/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.hotspot2</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/net/wifi/hotspot2/omadm/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.hotspot2.omadm</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/net/wifi/hotspot2/pps/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.hotspot2.pps</a></li><li class="api apilevel-14"><a href="https://developer.android.com/reference/android/net/wifi/p2p/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.p2p</a></li><li class="api apilevel-16"><a href="https://developer.android.com/reference/android/net/wifi/p2p/nsd/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.net.wifi.p2p.nsd</a></li><li class="api apilevel-9"><a href="https://developer.android.com/reference/android/nfc/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.nfc</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/nfc/cardemulation/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.nfc.cardemulation</a></li><li class="api apilevel-10"><a href="https://developer.android.com/reference/android/nfc/tech/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.nfc.tech</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/opengl/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.opengl</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/os/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.os</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/os/health/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.os.health</a></li><li class="api apilevel-9"><a href="https://developer.android.com/reference/android/os/storage/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.os.storage</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/preference/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.preference</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/print/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.print</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/print/pdf/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.print.pdf</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/printservice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.printservice</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/provider/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.provider</a></li><li class="api apilevel-11"><a href="https://developer.android.com/reference/android/renderscript/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.renderscript</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/sax/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.sax</a></li><li class="api apilevel-14"><a href="https://developer.android.com/reference/android/security/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.security</a></li><li class="api apilevel-23"><a href="https://developer.android.com/reference/android/security/keystore/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.security.keystore</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/service/autofill/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.autofill</a></li><li class="api apilevel-22"><a href="https://developer.android.com/reference/android/service/carrier/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.carrier</a></li><li class="api apilevel-23"><a href="https://developer.android.com/reference/android/service/chooser/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.chooser</a></li><li class="api apilevel-17"><a href="https://developer.android.com/reference/android/service/dreams/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.dreams</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/service/media/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.media</a></li><li class="api apilevel-18"><a href="https://developer.android.com/reference/android/service/notification/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.notification</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/service/quicksettings/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.quicksettings</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/service/restrictions/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.restrictions</a></li><li class="api apilevel-14"><a href="https://developer.android.com/reference/android/service/textservice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.textservice</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/service/voice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.voice</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/android/service/vr/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.vr</a></li><li class="api apilevel-7"><a href="https://developer.android.com/reference/android/service/wallpaper/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.service.wallpaper</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/android/speech/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.speech</a></li><li class="api apilevel-4"><a href="https://developer.android.com/reference/android/speech/tts/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.speech.tts</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/system/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.system</a></li><li class="api apilevel-21"><a href="https://developer.android.com/reference/android/telecom/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.telecom</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/telephony/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.telephony</a></li><li class="api apilevel-5"><a href="https://developer.android.com/reference/android/telephony/cdma/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.telephony.cdma</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/telephony/gsm/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.telephony.gsm</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/test/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.test</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/test/mock/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.test.mock</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/test/suitebuilder/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.test.suitebuilder</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/test/suitebuilder/annotation/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.test.suitebuilder.annotation</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/text/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.text</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/android/text/format/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.text.format</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/text/method/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.text.method</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/text/style/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.text.style</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/text/util/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.text.util</a></li><li class="api apilevel-19"><a href="https://developer.android.com/reference/android/transition/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.transition</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/util/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.util</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/view/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view</a></li><li class="api apilevel-4"><a href="https://developer.android.com/reference/android/view/accessibility/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.accessibility</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/view/animation/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.animation</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/view/autofill/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.autofill</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/android/view/inputmethod/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.inputmethod</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/android/view/textclassifier/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.textclassifier</a></li><li class="api apilevel-14"><a href="https://developer.android.com/reference/android/view/textservice/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.view.textservice</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/webkit/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.webkit</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/android/widget/package-summary.html" class="dac-reference-nav-toggle dac-closed">android.widget</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/com/android/internal/util/package-summary.html" class="dac-reference-nav-toggle dac-closed">com.android.internal.util</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/dalvik/annotation/package-summary.html" class="dac-reference-nav-toggle dac-closed">dalvik.annotation</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/dalvik/bytecode/package-summary.html" class="dac-reference-nav-toggle dac-closed">dalvik.bytecode</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/dalvik/system/package-summary.html" class="dac-reference-nav-toggle dac-closed">dalvik.system</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/awt/font/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.awt.font</a></li><li class="api apilevel-3"><a href="https://developer.android.com/reference/java/beans/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.beans</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/io/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.io</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/lang/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.lang</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/lang/annotation/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.lang.annotation</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/lang/invoke/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.lang.invoke</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/lang/ref/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.lang.ref</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/lang/reflect/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.lang.reflect</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/math/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.math</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/net/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.net</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/nio/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/nio/channels/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.channels</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/nio/channels/spi/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.channels.spi</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/nio/charset/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.charset</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/nio/charset/spi/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.charset.spi</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/nio/file/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.file</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/nio/file/attribute/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.file.attribute</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/nio/file/spi/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.nio.file.spi</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/security/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.security</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/security/acl/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.security.acl</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/security/cert/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.security.cert</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/security/interfaces/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.security.interfaces</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/security/spec/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.security.spec</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/sql/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.sql</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/text/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.text</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/time/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.time</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/time/chrono/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.time.chrono</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/time/format/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.time.format</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/time/temporal/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.time.temporal</a></li><li class="api apilevel-26"><a href="https://developer.android.com/reference/java/time/zone/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.time.zone</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/concurrent/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.concurrent</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/concurrent/atomic/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.concurrent.atomic</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/concurrent/locks/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.concurrent.locks</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/java/util/function/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.function</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/jar/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.jar</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/logging/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.logging</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/prefs/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.prefs</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/regex/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.regex</a></li><li class="api apilevel-24"><a href="https://developer.android.com/reference/java/util/stream/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.stream</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/java/util/zip/package-summary.html" class="dac-reference-nav-toggle dac-closed">java.util.zip</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/crypto/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.crypto</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/crypto/interfaces/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.crypto.interfaces</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/crypto/spec/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.crypto.spec</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/microedition/khronos/egl/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.microedition.khronos.egl</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/microedition/khronos/opengles/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.microedition.khronos.opengles</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/net/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.net</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/net/ssl/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.net.ssl</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/security/auth/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.security.auth</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/security/auth/callback/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.security.auth.callback</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/security/auth/login/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.security.auth.login</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/security/auth/x500/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.security.auth.x500</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/security/cert/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.security.cert</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/sql/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.sql</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/xml/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/datatype/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.datatype</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/namespace/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.namespace</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/javax/xml/parsers/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.parsers</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/transform/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.transform</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/transform/dom/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.transform.dom</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/transform/sax/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.transform.sax</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/transform/stream/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.transform.stream</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/validation/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.validation</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/javax/xml/xpath/package-summary.html" class="dac-reference-nav-toggle dac-closed">javax.xml.xpath</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/junit/framework/package-summary.html" class="dac-reference-nav-toggle dac-closed">junit.framework</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/junit/runner/package-summary.html" class="dac-reference-nav-toggle dac-closed">junit.runner</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/apache/http/conn/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.apache.http.conn</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/apache/http/conn/scheme/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.apache.http.conn.scheme</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/apache/http/conn/ssl/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.apache.http.conn.ssl</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/apache/http/params/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.apache.http.params</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/json/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.json</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/w3c/dom/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.w3c.dom</a></li><li class="api apilevel-8"><a href="https://developer.android.com/reference/org/w3c/dom/ls/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.w3c.dom.ls</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/xml/sax/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.xml.sax</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/xml/sax/ext/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.xml.sax.ext</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/xml/sax/helpers/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.xml.sax.helpers</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/xmlpull/v1/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.xmlpull.v1</a></li><li class="api apilevel-1"><a href="https://developer.android.com/reference/org/xmlpull/v1/sax2/package-summary.html" class="dac-reference-nav-toggle dac-closed">org.xmlpull.v1.sax2</a></li>
+                  </ul>
+                </div>
+              </div>
+            
+          
+        </div>
+        
+        
+          
+
+
+
+<ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left" tabindex="0">
+  <li class="dac-nav-item home">
+    
+    <a class="dac-nav-link" href="https://developer.android.com/index.html">Inicio</a>
+    <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider" tabindex="0"></i>
+    <ul class="dac-nav-secondary about" style="display: none;">
+      <li class="dac-nav-item versions">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/about/versions/o/index.html">Android</a>
+      </li>
+      <li class="dac-nav-item wear">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/wear/index.html">Wear</a>
+      </li>
+      <li class="dac-nav-item tv">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/tv/index.html">TV</a>
+      </li>
+      <li class="dac-nav-item auto">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/auto/index.html">Auto</a>
+      </li>
+      
+      <li class="dac-nav-item chrome-os">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/chrome-os/index.html">Chrome OS</a>
+      </li>
+      
+      <li class="dac-nav-item things">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/things/index.html">Things</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dac-nav-item design">
+    <a class="dac-nav-link" href="https://developer.android.com/design/index.html" zh-tw-lang="設計" zh-cn-lang="设计" ru-lang="Проектирование" ko-lang="디자인" ja-lang="設計" es-lang="Diseñar">
+      
+      Design</a>
+  </li>
+  <li class="dac-nav-item develop">
+    <a class="dac-nav-link has-subnav" href="https://developer.android.com/develop/index.html" zh-tw-lang="開發" zh-cn-lang="开发" ru-lang="Разработка" ko-lang="개발" ja-lang="開発" es-lang="Desarrollar">
+      
+      Develop</a>
+    <i class="dac-sprite dac-nav-sub-slider dac-expand-less-black" tabindex="0"></i>
+    <ul class="dac-nav-secondary develop">
+      <li class="dac-nav-item training">
+        <a class="dac-nav-link" href="https://developer.android.com/training/index.html" zh-tw-lang="訓練課程" zh-cn-lang="培训" ru-lang="Курсы" ko-lang="교육" ja-lang="トレーニング" es-lang="Capacitación">
+            
+            Capacitación</a>
+      </li>
+      <li class="dac-nav-item guide">
+        <a class="dac-nav-link" href="https://developer.android.com/guide/index.html" zh-tw-lang="API 指南" zh-cn-lang="API 指南" ru-lang="Руководства по API" ko-lang="API 가이드" ja-lang="API ガイド" es-lang="Guías de la API">
+          
+          API Guides</a>
+      </li>
+      <li class="dac-nav-item reference">
+        <a class="dac-nav-link selected" href="https://developer.android.com/reference/packages.html" zh-tw-lang="參考資源" zh-cn-lang="参考" ru-lang="Справочник" ko-lang="참조문서" ja-lang="リファレンス" es-lang="Referencia">
+          
+          Referencia</a><span class="dac-nav-link-forward" tabindex="0"><i class="dac-sprite dac-nav-forward"></i></span>
+      </li>
+      <li class="dac-nav-item samples">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/samples/index.html">Muestras</a>
+      </li>
+      <li class="dac-nav-item libraries">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/topic/libraries/index.html">Bibliotecas</a></li>
+      <li class="dac-nav-item studio">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/studio/index.html">Android Studio</a></li>
+      <li class="dac-nav-item ndk">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/ndk/index.html">Android NDK</a></li>
+      <li class="dac-nav-item google">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/google/index.html">Google Services</a>
+      </li>
+      <li class="dac-nav-item quality-guidelines">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/develop/quality-guidelines/index.html">Quality Guidelines</a>
+      </li>
+      <li class="dac-nav-item kotlin">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/kotlin/index.html">Kotlin</a>
+       </li>
+    </ul>
+  </li>
+  <li class="dac-nav-item distribute">
+    <a class="dac-nav-link" href="https://developer.android.com/distribute/index.html" zh-tw-lang="發佈" zh-cn-lang="分发" ru-lang="Распространение" ko-lang="배포" ja-lang="配布" de-lang="Vertrieb" es-lang="Distribuir" es-419-lang="Distribuye" fr-lang="Distribuer" id-lang="Distribusikan" pt-br-lang="Distribuição" th-lang="จัดจำหน่าย" tr-lang="Dağıtma" vi-lang="Phân phối">Distribuye</a>
+    <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider" tabindex="0"></i>
+    <ul class="dac-nav-secondary distribute" style="display: none;">
+      <li class="dac-nav-item google-play">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/distribute/google-play/index.html">Google Play</a>
+      </li>
+      <li class="dac-nav-item console">
+        
+        <a class="dac-nav-link" href="https://developer.android.com/distribute/console/index.html">Play Console</a>
+      </li>
+      <li class="dac-nav-item best-practices">
+        <a class="dac-nav-link" href="https://developer.android.com/distribute/best-practices/index.html" es-419-lang="Recomendaciones" fr-lang="Bonnes pratiques" id-lang="Praktik terbaik" ja-lang="おすすめの方法" ko-lang="권장사항" pt-br-lang="Práticas recomendadas" ru-lang="Рекомендации" th-lang="จัดจำหน่าย" tr-lang="En iyi uygulamalar" vi-lang="Các phương pháp hay nhất" zh-cn-lang="最佳做法" zh-tw-lang="最佳做法">Recomendaciones</a>
+      </li>
+      <li class="dac-nav-item marketing-tools">
+        <a class="dac-nav-link" href="https://developer.android.com/distribute/marketing-tools/index.html" de-lang="Marketing-Tools" es-419-lang="Herramientas de marketing" fr-lang="Outils marketing" id-lang="Fitur pemasaran" ja-lang="マーケティング ツール" ko-lang="마케팅 도구" pt-br-lang="Ferramentas de marketing" ru-lang="Маркетинговые инструменты" th-lang="เครื่องมือการตลาด" tr-lang="Pazarlama araçları" vi-lang="Công cụ tiếp thị" zh-cn-lang="营销工具" zh-tw-lang="行銷工具">Herramientas de marketing</a>
+      </li>
+      <li class="dac-nav-item policy-center">
+        
+        <a class="dac-nav-link" href="https://play.google.com/about/developer-content-policy/" target="_blank">Policy center</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dac-nav-item stories">
+    
+    <a class="dac-nav-link" href="https://developer.android.com/stories/index.html">Stories</a>
+  </li>
+  
+</ul>
+
+        
+      </div>
+    </div>
+  </nav>
+
+  <a name="top" tabindex="0"></a>
+  
+  <div class="wrap clearfix" id="body-content">
+  
+    
+      
+    
+    <div class="jd-descr " itemprop="articleBody">
+      <div id="doc-api-level" class="1" style="display:none"></div>
+
+<div itemscope="" itemtype="http://developers.google.com/ReferenceObject">
+<!-- This DIV closes at the end of the BODY -->
+  <meta itemprop="name" content="android.content.BroadcastReceiver">
+  <meta itemprop="path" content="API level 1">
+
+
+
+<div id="naMessage"></div>
+
+<div id="api-info-block">
+<div class="api-level">
+  
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+  
+  
+  
+  
+
+</div>
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+
+
+
+
+  | <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#pubctors">Ctors</a>
+  
+
+
+
+  | <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#pubmethods">Methods</a>
+  
+
+
+
+  | <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#inhmethods">Inherited Methods</a>
+
+| <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+</div><!-- end api-info-block -->
+
+<div class="api apilevel-1" id="jd-content" data-version-added="1">
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<h1 class="api-title">BroadcastReceiver</h1>
+<p>
+<code class="api-signature">
+  public
+  
+  
+  abstract
+  class
+  BroadcastReceiver
+</code>
+<br>
+
+
+<code class="api-signature">
+  
+    extends <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a>
+  
+  
+  
+</code>
+
+<code class="api-signature">
+  
+  
+  
+</code>
+
+</p><table class="jd-inheritance-table">
+
+
+  <tbody><tr>
+    
+    <td colspan="2" class="jd-inheritance-class-cell"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+    </td>
+  </tr>
+  
+
+  <tr>
+    
+      <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;↳</td>
+    
+    <td colspan="1" class="jd-inheritance-class-cell">android.content.BroadcastReceiver
+    </td>
+  </tr>
+  
+
+</tbody></table>
+  <div class="dac-expand wide-table"><table class="jd-sumtable jd-sumtable-subclasses">
+    <tbody><tr>
+      <td style="border:none;margin:0;padding:0;">
+          
+  <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" id="subclasses-direct" class="jd-expando-trigger closed" onclick="return toggleInherited(this, null)">
+    <img id="subclasses-direct-trigger" class="jd-expando-trigger-img" height="34" src="./BroadcastReceiver _ Android Developers_files/disclosure_down.png">
+  </a><span>Known Direct Subclasses</span>
+          
+  <div id="subclasses-direct">
+    <div id="subclasses-direct-list" class="jd-inheritedlinks"> <a href="https://developer.android.com/reference/android/appwidget/AppWidgetProvider.html">AppWidgetProvider</a>,<a href="https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.html">DeviceAdminReceiver</a>,<a href="https://developer.android.com/reference/android/service/restrictions/RestrictionsReceiver.html">RestrictionsReceiver</a>
+    </div>
+    <div id="subclasses-direct-summary" style="display: none;">
+      
+  
+  <table class="jd-sumtable-expando">
+    
+      <tbody><tr class="api apilevel-3" data-version-added="3">
+        <td class="jd-linkcol"><a href="https://developer.android.com/reference/android/appwidget/AppWidgetProvider.html">AppWidgetProvider</a></td>
+        <td class="jd-descrcol" width="100%">
+          A convenience class to aid in implementing an AppWidget provider.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="api apilevel-8" data-version-added="8">
+        <td class="jd-linkcol"><a href="https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.html">DeviceAdminReceiver</a></td>
+        <td class="jd-descrcol" width="100%">
+          Base class for implementing a device administration component.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="api apilevel-21" data-version-added="21">
+        <td class="jd-linkcol"><a href="https://developer.android.com/reference/android/service/restrictions/RestrictionsReceiver.html">RestrictionsReceiver</a></td>
+        <td class="jd-descrcol" width="100%">
+          Abstract implementation of a Restrictions Provider BroadcastReceiver.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+  </tbody></table>
+
+    </div>
+  </div>
+      </td>
+    </tr>
+  </tbody></table></div>
+  
+  
+
+    
+
+<br><hr>
+
+
+  <p>Base class for code that receives and handles broadcast intents sent by
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast(Intent)</a></code>.
+
+ </p><p>You can either dynamically register an instance of this class with
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">Context.registerReceiver()</a></code>
+ or statically declare an implementation with the
+ <code><a href="https://developer.android.com/reference/android/R.styleable.html#AndroidManifestReceiver">&lt;receiver&gt;</a></code>
+ tag in your <code>AndroidManifest.xml</code>.
+
+ </p><div class="special reference">
+ <h3>Developer Guides</h3>
+ <p>For more information about using BroadcastReceiver, read the
+ <a href="https://developer.android.com/guide/components/broadcasts.html">Broadcasts</a> developer guide.</p></div>
+
+<p></p>
+
+
+
+
+
+
+
+
+
+<h2 class="api-section" style="padding-bottom: 0px;">Summary</h2><hr>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="responsive">
+<tbody><tr><th colspan="2"><h3>Nested classes</h3></th></tr>
+
+
+  
+    <tr class="api apilevel-11" data-version-added="11">
+      <td class="jd-typecol"><code>
+        
+        
+        
+        
+        class</code></td>
+      <td class="jd-descrcol" width="100%">
+        <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a></code>
+        <p>State for a result that is pending for a broadcast receiver.&nbsp;
+        
+    
+</p>
+      </td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+</tbody></table><table id="pubctors" class="responsive constructors">
+<tbody><tr><th colspan="2"><h3>Public constructors</h3></th></tr>
+
+
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#BroadcastReceiver()">BroadcastReceiver</a>()
+      </code>
+      
+    </td>
+  </tr>
+  
+
+
+</tbody></table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="responsive methods">
+<tbody><tr><th colspan="2"><h3>Public methods</h3></th></tr>
+
+
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#abortBroadcast()">abortBroadcast</a>()
+      </code>
+      
+        <p>Sets the flag indicating that this receiver should abort the
+ current broadcast; only works with broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#clearAbortBroadcast()">clearAbortBroadcast</a>()
+      </code>
+      
+        <p>Clears the flag indicating that this receiver should abort the current
+ broadcast.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#getAbortBroadcast()">getAbortBroadcast</a>()
+      </code>
+      
+        <p>Returns the flag indicating whether or not this receiver should
+ abort the current broadcast.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#getDebugUnregister()">getDebugUnregister</a>()
+      </code>
+      
+        <p>Return the last value given to <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setDebugUnregister(boolean)">setDebugUnregister(boolean)</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#getResultCode()">getResultCode</a>()
+      </code>
+      
+        <p>Retrieve the current result code, as set by the previous receiver.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#getResultData()">getResultData</a>()
+      </code>
+      
+        <p>Retrieve the current result data, as set by the previous receiver.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#getResultExtras(boolean)">getResultExtras</a>(boolean makeMap)
+      </code>
+      
+        <p>Retrieve the current result extra data, as set by the previous receiver.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-11" data-version-added="11">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#goAsync()">goAsync</a>()
+      </code>
+      
+        <p>This can be called by an application in <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive(Context, Intent)</a></code> to allow
+ it to keep the broadcast active after returning from that function.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-5" data-version-added="5">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#isInitialStickyBroadcast()">isInitialStickyBroadcast</a>()
+      </code>
+      
+        <p>Returns true if the receiver is currently processing the initial
+ value of a sticky broadcast -- that is, the value that was last
+ broadcast and is currently held in the sticky cache, so this is
+ not directly the result of a broadcast right now.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-5" data-version-added="5">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#isOrderedBroadcast()">isOrderedBroadcast</a>()
+      </code>
+      
+        <p>Returns true if the receiver is currently processing an ordered
+ broadcast.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive</a>(<a href="https://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="https://developer.android.com/reference/android/content/Intent.html">Intent</a> intent)
+      </code>
+      
+        <p>This method is called when the BroadcastReceiver is receiving an Intent
+ broadcast.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-3" data-version-added="3">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/android/os/IBinder.html">IBinder</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#peekService(android.content.Context, android.content.Intent)">peekService</a>(<a href="https://developer.android.com/reference/android/content/Context.html">Context</a> myContext, <a href="https://developer.android.com/reference/android/content/Intent.html">Intent</a> service)
+      </code>
+      
+        <p>Provide a binder to an already-bound service.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setDebugUnregister(boolean)">setDebugUnregister</a>(boolean debug)
+      </code>
+      
+        <p>Control inclusion of debugging help for mismatched
+ calls to <code><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">Context.registerReceiver()</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setOrderedHint(boolean)">setOrderedHint</a>(boolean isOrdered)
+      </code>
+      
+        <p>For internal use, sets the hint about whether this BroadcastReceiver is
+ running in ordered mode.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResult(int, java.lang.String, android.os.Bundle)">setResult</a>(int code, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> data, <a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a> extras)
+      </code>
+      
+        <p>Change all of the result data returned from this broadcasts; only works
+ with broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResultCode(int)">setResultCode</a>(int code)
+      </code>
+      
+        <p>Change the current result code of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResultData(java.lang.String)">setResultData</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> data)
+      </code>
+      
+        <p>Change the current result data of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResultExtras(android.os.Bundle)">setResultExtras</a>(<a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a> extras)
+      </code>
+      
+        <p>Change the current result extras of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+</tbody></table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="methods inhtable">
+<tbody><tr><th><h3>Inherited methods</h3></th></tr>
+
+
+<tr class="api apilevel-">
+<td colspan="2">
+  <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed" onclick="return toggleInherited(this, null)">
+    <img id="inherited-methods-java.lang.Object-trigger" class="jd-expando-trigger-img" height="34" src="./BroadcastReceiver _ Android Developers_files/disclosure_down.png">
+  </a>From
+class
+<code>
+  
+    <a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+  
+</code>
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list" class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando responsive">
+      
+
+
+  
+  <tbody><tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#clone()">clone</a>()
+      </code>
+      
+        <p>Creates and returns a copy of this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#equals(java.lang.Object)">equals</a>(<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a> obj)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#finalize()">finalize</a>()
+      </code>
+      
+        <p>Called by the garbage collector on an object when garbage collection
+ determines that there are no more references to the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#getClass()">getClass</a>()
+      </code>
+      
+        <p>Returns the runtime class of this <code>Object</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify</a>()
+      </code>
+      
+        <p>Wakes up a single thread that is waiting on this object's
+ monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll</a>()
+      </code>
+      
+        <p>Wakes up all threads that are waiting on this object's monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long, int)">wait</a>(long millis, int nanos)
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
+ some other thread interrupts the current thread, or a certain
+ amount of real time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long)">wait</a>(long millis)
+      </code>
+      
+        <p>Causes the current thread to wait until either another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
+ specified amount of time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" data-version-added="1">
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait()">wait</a>()
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </tbody></table>
+  </div>
+</div>
+</td></tr>
+
+
+</tbody></table>
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2 class="api-section" style="padding-bottom: 0px;">Public constructors</h2><hr>
+
+
+
+<a name="BroadcastReceiver()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">BroadcastReceiver</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">BroadcastReceiver ()</pre>
+    
+    
+
+    
+  <p></p><p></p>
+
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2 class="api-section" style="padding-bottom: 0px;">Public methods</h2><hr>
+
+
+
+<a name="abortBroadcast()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">abortBroadcast</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void abortBroadcast ()</pre>
+    
+    
+
+    
+  <p>Sets the flag indicating that this receiver should abort the
+ current broadcast; only works with broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.  This will prevent
+ any other broadcast receivers from receiving the broadcast. It will still
+ call <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive(Context, Intent)</a></code> of the BroadcastReceiver that the caller of
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code> passed in.
+
+ </p><p><strong>This method does not work with non-ordered broadcasts such
+ as those sent with <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast</a></code></strong></p>
+<p></p><p></p>
+
+</div>
+
+
+<a name="clearAbortBroadcast()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">clearAbortBroadcast</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void clearAbortBroadcast ()</pre>
+    
+    
+
+    
+  <p>Clears the flag indicating that this receiver should abort the current
+ broadcast.
+</p><p></p>
+
+</div>
+
+
+<a name="getAbortBroadcast()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">getAbortBroadcast</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">boolean getAbortBroadcast ()</pre>
+    
+    
+
+    
+  <p>Returns the flag indicating whether or not this receiver should
+ abort the current broadcast.</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">True if the broadcast should be aborted.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="getDebugUnregister()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">getDebugUnregister</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">boolean getDebugUnregister ()</pre>
+    
+    
+
+    
+  <p>Return the last value given to <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setDebugUnregister(boolean)">setDebugUnregister(boolean)</a></code>.
+</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><!-- no returns description in source --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="getResultCode()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">getResultCode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">int getResultCode ()</pre>
+    
+    
+
+    
+  <p>Retrieve the current result code, as set by the previous receiver.</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">int The current result code.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="getResultData()"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">getResultData</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print"><a href="https://developer.android.com/reference/java/lang/String.html">String</a> getResultData ()</pre>
+    
+    
+
+    
+  <p>Retrieve the current result data, as set by the previous receiver.
+ Often this is null.</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">String The current result data; may be null.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="getResultExtras(boolean)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">getResultExtras</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print"><a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a> getResultExtras (boolean makeMap)</pre>
+    
+    
+
+    
+  <p>Retrieve the current result extra data, as set by the previous receiver.
+ Any changes you make to the returned Map will be propagated to the next
+ receiver.</p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>makeMap</code></td>
+        <td width="100%">
+          <code>boolean</code>: If true then a new empty Map will be made for you if the
+                current Map is null; if false you should be prepared to
+                receive a null Map.<p></p></td>
+      </tr>
+    </tbody></table>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code></td>
+        <td width="100%">Map The current extras map.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="goAsync()"></a>
+
+<div class="api apilevel-11" data-version-added="11">
+    <h3 class="api-name">goAsync</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print"><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a> goAsync ()</pre>
+    
+    
+
+    
+  <p>This can be called by an application in <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive(Context, Intent)</a></code> to allow
+ it to keep the broadcast active after returning from that function.
+ This does <em>not</em> change the expectation of being relatively
+ responsive to the broadcast, but does allow
+ the implementation to move work related to it over to another thread
+ to avoid glitching the main UI thread due to disk IO.
+
+ </p><p>As a general rule, broadcast receivers are allowed to run for up to 10 seconds
+ before they system will consider them non-responsive and ANR the app.  Since these usually
+ execute on the app's main thread, they are already bound by the ~5 second time limit
+ of various operations that can happen there (not to mention just avoiding UI jank), so
+ the receive limit is generally not of concern.  However, once you use <code>goAsync</code>, though
+ able to be off the main thread, the broadcast execution limit still applies, and that
+ includes the time spent between calling this method and ultimately
+ <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html#finish()">PendingResult.finish()</a></code>.</p>
+
+ <p>If you are taking advantage of this method to have more time to execute, it is useful
+ to know that the available time can be longer in certain situations.  In particular, if
+ the broadcast you are receiving is not a foreground broadcast (that is, the sender has not
+ used <code><a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_RECEIVER_FOREGROUND">FLAG_RECEIVER_FOREGROUND</a></code>), then more time is allowed for the receivers
+ to run, allowing them to execute for 30 seconds or even a bit more.  This is something that
+ receivers should rarely take advantage of (long work should be punted to another system
+ facility such as <code><a href="https://developer.android.com/reference/android/app/job/JobScheduler.html">JobScheduler</a></code>, <code><a href="https://developer.android.com/reference/android/app/Service.html">Service</a></code>, or
+ see especially <code><a href="https://developer.android.com/reference/android/support/v4/app/JobIntentService.html">JobIntentService</a></code>), but can be useful in
+ certain rare cases where it is necessary to do some work as soon as the broadcast is
+ delivered.  Keep in mind that the work you do here will block further broadcasts until
+ it completes, so taking advantage of this at all excessively can be counter-productive
+ and cause later events to be received more slowly.</p><p></p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a></code></td>
+        <td width="100%">Returns a <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a></code> representing the result of
+ the active broadcast.  The BroadcastRecord itself is no longer active;
+ all data and other interaction must go through <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html">BroadcastReceiver.PendingResult</a></code>
+ APIs.  The <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult.html#finish()">PendingResult.finish()</a></code> method
+ must be called once processing of the broadcast is done.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="isInitialStickyBroadcast()"></a>
+
+<div class="api apilevel-5" data-version-added="5">
+    <h3 class="api-name">isInitialStickyBroadcast</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 5</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">boolean isInitialStickyBroadcast ()</pre>
+    
+    
+
+    
+  <p>Returns true if the receiver is currently processing the initial
+ value of a sticky broadcast -- that is, the value that was last
+ broadcast and is currently held in the sticky cache, so this is
+ not directly the result of a broadcast right now.
+</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><!-- no returns description in source --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="isOrderedBroadcast()"></a>
+
+<div class="api apilevel-5" data-version-added="5">
+    <h3 class="api-name">isOrderedBroadcast</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 5</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">boolean isOrderedBroadcast ()</pre>
+    
+    
+
+    
+  <p>Returns true if the receiver is currently processing an ordered
+ broadcast.
+</p><p></p>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><!-- no returns description in source --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="onReceive(android.content.Context, android.content.Intent)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">onReceive</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void onReceive (<a href="https://developer.android.com/reference/android/content/Context.html">Context</a> context, 
+                <a href="https://developer.android.com/reference/android/content/Intent.html">Intent</a> intent)</pre>
+    
+    
+
+    
+  <p>This method is called when the BroadcastReceiver is receiving an Intent
+ broadcast.  During this time you can use the other methods on
+ BroadcastReceiver to view/modify the current result values.  This method
+ is always called within the main thread of its process, unless you
+ explicitly asked for it to be scheduled on a different thread using
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter, java.lang.String, android.os.Handler)">registerReceiver(BroadcastReceiver, IntentFilter, String, android.os.Handler)</a></code>. When it runs on the main
+ thread you should
+ never perform long-running operations in it (there is a timeout of
+ 10 seconds that the system allows before considering the receiver to
+ be blocked and a candidate to be killed). You cannot launch a popup dialog
+ in your implementation of onReceive().
+
+ </p><p><b>If this BroadcastReceiver was launched through a &lt;receiver&gt; tag,
+ then the object is no longer alive after returning from this
+ function.</b> This means you should not perform any operations that
+ return a result to you asynchronously. If you need to perform any follow up
+ background work, schedule a <code><a href="https://developer.android.com/reference/android/app/job/JobService.html">JobService</a></code> with
+ <code><a href="https://developer.android.com/reference/android/app/job/JobScheduler.html">JobScheduler</a></code>.
+
+ If you wish to interact with a service that is already running and previously
+ bound using <code><a href="https://developer.android.com/reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>,
+ you can use <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#peekService(android.content.Context, android.content.Intent)">peekService(Context, Intent)</a></code>.
+
+ </p><p>The Intent filters used in <code><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">registerReceiver(BroadcastReceiver, IntentFilter)</a></code>
+ and in application manifests are <em>not</em> guaranteed to be exclusive. They
+ are hints to the operating system about how to find suitable recipients. It is
+ possible for senders to force delivery to specific recipients, bypassing filter
+ resolution.  For this reason, <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive()</a></code>
+ implementations should respond only to known actions, ignoring any unexpected
+ Intents that they may receive.</p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>context</code></td>
+        <td width="100%">
+          <code>Context</code>: The Context in which the receiver is running.<p></p></td>
+      </tr>
+      <tr>
+        <td><code>intent</code></td>
+        <td width="100%">
+          <code>Intent</code>: The Intent being received.
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="peekService(android.content.Context, android.content.Intent)"></a>
+
+<div class="api apilevel-3" data-version-added="3">
+    <h3 class="api-name">peekService</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 3</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print"><a href="https://developer.android.com/reference/android/os/IBinder.html">IBinder</a> peekService (<a href="https://developer.android.com/reference/android/content/Context.html">Context</a> myContext, 
+                <a href="https://developer.android.com/reference/android/content/Intent.html">Intent</a> service)</pre>
+    
+    
+
+    
+  <p>Provide a binder to an already-bound service.  This method is synchronous
+ and will not start the target service if it is not present, so it is safe
+ to call from <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive(Context, Intent)</a></code>.
+
+ For peekService() to return a non null <code><a href="https://developer.android.com/reference/android/os/IBinder.html">IBinder</a></code> interface
+ the service must have published it before. In other words some component
+ must have called <code><a href="https://developer.android.com/reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService(Intent, ServiceConnection, int)</a></code> on it.</p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>myContext</code></td>
+        <td width="100%">
+          <code>Context</code>: The Context that had been passed to <code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive(android.content.Context, android.content.Intent)">onReceive(Context, Intent)</a></code><p></p></td>
+      </tr>
+      <tr>
+        <td><code>service</code></td>
+        <td width="100%">
+          <code>Intent</code>: Identifies the already-bound service you wish to use. See
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService(Intent, ServiceConnection, int)</a></code>
+ for more information.
+<p></p></td>
+      </tr>
+    </tbody></table>
+    <table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/os/IBinder.html">IBinder</a></code></td>
+        <td width="100%"><!-- no returns description in source --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="setDebugUnregister(boolean)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setDebugUnregister</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setDebugUnregister (boolean debug)</pre>
+    
+    
+
+    
+  <p>Control inclusion of debugging help for mismatched
+ calls to <code><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">Context.registerReceiver()</a></code>.
+ If called with true, before given to registerReceiver(), then the
+ callstack of the following <code><a href="https://developer.android.com/reference/android/content/Context.html#unregisterReceiver(android.content.BroadcastReceiver)">Context.unregisterReceiver()</a></code> call is retained, to be printed if a later
+ incorrect unregister call is made.  Note that doing this requires retaining
+ information about the BroadcastReceiver for the lifetime of the app,
+ resulting in a leak -- this should only be used for debugging.
+</p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>debug</code></td>
+        <td width="100%">
+          <code>boolean</code> <!-- no parameter comment --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="setOrderedHint(boolean)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setOrderedHint</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setOrderedHint (boolean isOrdered)</pre>
+    
+    
+
+    
+  <p>For internal use, sets the hint about whether this BroadcastReceiver is
+ running in ordered mode.
+</p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>isOrdered</code></td>
+        <td width="100%">
+          <code>boolean</code> <!-- no parameter comment --><p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="setResult(int, java.lang.String, android.os.Bundle)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setResult</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setResult (int code, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> data, 
+                <a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a> extras)</pre>
+    
+    
+
+    
+  <p>Change all of the result data returned from this broadcasts; only works
+ with broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.  All current result data is replaced
+ by the value given to this method.
+
+ </p><p><strong>This method does not work with non-ordered broadcasts such
+ as those sent with <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast</a></code></strong></p><p></p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>code</code></td>
+        <td width="100%">
+          <code>int</code>: The new result code.  Often uses the
+ Activity <code><a href="https://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code> and
+ <code><a href="https://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> constants, though the
+ actual meaning of this value is ultimately up to the broadcaster.<p></p></td>
+      </tr>
+      <tr>
+        <td><code>data</code></td>
+        <td width="100%">
+          <code>String</code>: The new result data.  This is an arbitrary
+ string whose interpretation is up to the broadcaster; may be null.<p></p></td>
+      </tr>
+      <tr>
+        <td><code>extras</code></td>
+        <td width="100%">
+          <code>Bundle</code>: The new extra data map.  This is a Bundle
+ holding arbitrary data, whose interpretation is up to the
+ broadcaster.  Can be set to null.  This completely
+ replaces the current map (if any).
+<p></p></td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+
+<a name="setResultCode(int)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setResultCode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setResultCode (int code)</pre>
+    
+    
+
+    
+  <p>Change the current result code of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.  Often uses the
+ Activity <code><a href="https://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code> and
+ <code><a href="https://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> constants, though the
+ actual meaning of this value is ultimately up to the broadcaster.
+
+ </p><p class="note">This method does not work with non-ordered broadcasts such
+ as those sent with <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast</a></code></p><p></p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>code</code></td>
+        <td width="100%">
+          <code>int</code>: The new result code.<p></p></td>
+      </tr>
+    </tbody></table>
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResult(int, java.lang.String, android.os.Bundle)">setResult(int, String, Bundle)</a></code></li>
+      </ul>
+  </div>
+
+</div>
+
+
+<a name="setResultData(java.lang.String)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setResultData</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setResultData (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> data)</pre>
+    
+    
+
+    
+  <p>Change the current result data of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.  This is an arbitrary
+ string whose interpretation is up to the broadcaster.
+
+ </p><p><strong>This method does not work with non-ordered broadcasts such
+ as those sent with <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast</a></code></strong></p><p></p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>data</code></td>
+        <td width="100%">
+          <code>String</code>: The new result data; may be null.<p></p></td>
+      </tr>
+    </tbody></table>
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResult(int, java.lang.String, android.os.Bundle)">setResult(int, String, Bundle)</a></code></li>
+      </ul>
+  </div>
+
+</div>
+
+
+<a name="setResultExtras(android.os.Bundle)"></a>
+
+<div class="api apilevel-1" data-version-added="1">
+    <h3 class="api-name">setResultExtras</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">void setResultExtras (<a href="https://developer.android.com/reference/android/os/Bundle.html">Bundle</a> extras)</pre>
+    
+    
+
+    
+  <p>Change the current result extras of this broadcast; only works with
+ broadcasts sent through
+ <code><a href="https://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">Context.sendOrderedBroadcast</a></code>.  This is a Bundle
+ holding arbitrary data, whose interpretation is up to the
+ broadcaster.  Can be set to null.  Calling this method completely
+ replaces the current map (if any).
+
+ </p><p><strong>This method does not work with non-ordered broadcasts such
+ as those sent with <code><a href="https://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">Context.sendBroadcast</a></code></strong></p><p></p><p></p>
+    <table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code>extras</code></td>
+        <td width="100%">
+          <code>Bundle</code>: The new extra data map; may be null.<p></p></td>
+      </tr>
+    </tbody></table>
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code><a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#setResult(int, java.lang.String, android.os.Bundle)">setResult(int, String, Bundle)</a></code></li>
+      </ul>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+
+</div><!-- end jd-content -->
+
+
+
+<div class="data-reference-resources-wrapper">
+  
+  
+  
+</div>
+
+
+
+</div><!-- end devsite ReferenceObject -->
+
+    </div>
+
+    
+
+  
+    
+  
+    
+
+
+
+
+  
+
+
+<footer class="devsite-footer-promos nocontent">
+  <nav class="devsite-full-site-width">
+    <ul class="devsite-footer-promos-list">
+      
+      <li class="devsite-footer-promo">
+        <a href="https://twitter.com/AndroidDev" class="devsite-footer-promo-title gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Twitter Promo">
+          
+          
+          <img class="devsite-footer-promo-icon" src="./BroadcastReceiver _ Android Developers_files/logo-twitter.svg">
+          
+          
+            Twitter
+          
+        </a>
+        <div class="devsite-footer-promo-description">Follow @AndroidDev on Twitter</div>
+      </li>
+      
+      <li class="devsite-footer-promo">
+        <a href="https://plus.google.com/+AndroidDevelopers" class="devsite-footer-promo-title gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Google+ Promo">
+          
+          
+          <img class="devsite-footer-promo-icon" src="./BroadcastReceiver _ Android Developers_files/google_plus_48dp.png">
+          
+          
+            Google+
+          
+        </a>
+        <div class="devsite-footer-promo-description">Follow Android Developers on Google+</div>
+      </li>
+      
+      <li class="devsite-footer-promo">
+        <a href="https://www.youtube.com/user/androiddevelopers" class="devsite-footer-promo-title gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer YouTube Promo">
+          
+          
+          <img class="devsite-footer-promo-icon" src="./BroadcastReceiver _ Android Developers_files/youtube_48dp.png">
+          
+          
+            YouTube
+          
+        </a>
+        <div class="devsite-footer-promo-description">Check out Android Developers on YouTube</div>
+      </li>
+      
+    </ul>
+  </nav>
+</footer>
+
+
+
+<div class="wrap dac-footer-container">
+  <footer class="dac-footer ">
+    <div class="cols dac-footer-main">
+      <div class="col-1of1">
+        <div class="dac-footer-contact">
+          
+          <a class="dac-footer-contact-link" href="https://developer.android.com/newsletter/index.html" title="Newsletter">Newsletter</a>
+          
+          <a class="dac-footer-contact-link" href="https://android-developers.blogspot.com/" title="Blog" target="_blank">Blog</a>
+          
+          <a class="dac-footer-contact-link" href="https://developer.android.com/support.html" title="Asistencia">Asistencia</a>
+          
+          <a class="dac-footer-contact-link" href="https://docs.google.com/forms/d/e/1FAIpQLSf27XIxoFmNpTjTYdk-m1uKWGqEnd7_4C_E1AD5fdCfyTBWNA/viewform?usp=pp_url&amp;entry.1909689089&amp;entry.208743710&amp;entry.408796755&amp;entry.1341430893&amp;entry.594931249&amp;entry.1640656812&amp;entry.1759804042&amp;entry.1441312344=developer.android.com" title="Join user studies" target="_blank">Join user studies</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator">
+      
+      <p class="dac-footer-copyright">
+        
+        Except as noted, this content is licensed under <a href="http://creativecommons.org/licenses/by/2.5/" target="_blank">Creative Commons Attribution 2.5</a>. For details and restrictions, see the <a href="https://developer.android.com/license.html">Content License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      
+      <a href="https://www.android.com/" title="Android.com" target="_blank">Android.com</a>
+      
+      <a href="https://developer.android.com/" title="Android Developers">Android Developers</a>
+      
+      <a href="https://developer.android.com/studio/index.html" title="Android Studio">Android Studio</a>
+      
+      <a href="https://developer.android.com/distribute/console/index.html" title="Google Play Console">Google Play Console</a>
+      
+      <a href="https://developer.android.com/legal.html" title="Legal Notice">Legal Notice</a>
+    </p>
+
+    
+    <form class="devsite-utility-footer-language" id="setlang" action="https://developer.android.com/i18n/setlang/" method="post">
+      <input type="hidden" name="xsrf_token" value="mflLOV-anyRTeBoD30rFl-GM3SVRVcXEiFctmEXBxO06MTUxNTA4MTMxNjMwNDM5MA">
+      <input type="hidden" name="next" value="/reference/android/content/BroadcastReceiver.html">
+      <span id="language" class="locales">
+        <select class="devsite-utility-footer-language-select" name="language">
+          
+          <option value="id">
+            Bahasa Indonesia
+          </option>
+          
+          <option value="de">
+            Deutsch
+          </option>
+          
+          <option value="en">
+            English
+          </option>
+          
+          <option value="es">
+            español
+          </option>
+          
+          <option value="es-419" selected="selected">
+            Español (América Latina)
+          </option>
+          
+          <option value="fr">
+            français
+          </option>
+          
+          <option value="pt-br">
+            Português Brasileiro
+          </option>
+          
+          <option value="vi">
+            Tiếng Việt
+          </option>
+          
+          <option value="tr">
+            Türkçe
+          </option>
+          
+          <option value="ru">
+            Русский
+          </option>
+          
+          <option value="th">
+            ภาษาไทย
+          </option>
+          
+          <option value="ja">
+            日本語
+          </option>
+          
+          <option value="zh-cn">
+            简体中文
+          </option>
+          
+          <option value="zh-tw">
+            繁體中文
+          </option>
+          
+          <option value="ko">
+            한국어
+          </option>
+          
+        </select>
+      </span>
+    </form>
+  </footer>
+</div><!--/.wrap -->
+
+<div class="dac-toast-group">
+  <div class="dac-toast" data-toast="">
+    <div class="dac-toast-wrap">
+      
+      This site uses cookies to store your preferences for site-specific language and display options.
+      <button class="dac-toast-close-btn">
+        
+        <span class="dac-button dac-raised dac-primary">OK</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div data-modal="newsletter" data-newsletter-fb="" data-swap="" class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle=""></button>
+        </div>
+        <div class="dac-swap" data-swap-container="">
+          <section class="dac-swap-section dac-active dac-down">
+            
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint">* Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container="">
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://services.google.com/fb/submissions/android-developer-mailing-list/" class="dac-form" method="post">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="fullname" id="newsletter-full-name" required="">
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="emailaddress" id="newsletter-email" required="">
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="companydevelopername" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="playstoreappurls" id="newsletter-play-store">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  
+                  <div class="col-1of2 newsletter-leftCol newsletter-interested" data-validation-message="Please check at least one item.">
+                    
+                    <legend class="dac-form-legend">What are you interested in?<span class="dac-form-required">*</span></legend>
+                    <div class="dac-form-radio-group">
+                      <input type="checkbox" class="dac-form-checkbox" name="interested" id="interested-whats-new" value="whats-new">
+                      <label for="interested-whats-new" class="dac-form-checkbox-button"></label>
+                      
+                      <label for="interested-whats-new" class="dac-form-label">What's new</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="checkbox" class="dac-form-checkbox" name="interested" id="interested-games-updates" value="games-updates">
+                      <label for="interested-games-updates" class="dac-form-checkbox-button"></label>
+                      
+                      <label for="interested-games-updates" class="dac-form-label">Games updates</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="checkbox" class="dac-form-checkbox" name="interested" id="interested-android-development" value="android-development">
+                      <label for="interested-android-development" class="dac-form-checkbox-button"></label>
+                      
+                      <label for="interested-android-development" class="dac-form-label">Android development</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-input-group">
+                      
+                      <label for="newsletter-receive-in">Receive newsletter in</label>
+                      <select name="language" class="dac-form-select" id="newsletter-receive-in">
+                        <option value="en-US" selected="">English</option>
+                        <option value="ar">Arabic</option>
+                        <option value="zh">Chinese (Simplified)</option>
+                        <option value="zh-TW">Chinese (Traditional)</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="id">Indonesian (Bahasa)</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="pt-BR">Portuguese (Brazilian)</option>
+                        <option value="ru">Russian</option>
+                        <option value="es-419">Spanish (Latin American)</option>
+                        <option value="th">Thai</option>
+                        <option value="tr">Turkish</option>
+                        <option value="vi">Vietnamese</option>
+                      </select>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="marketingoptin" id="newsletter-add" required="" value="Add me to the mailing list.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">
+                            
+                            Add me to the mailing list.
+                            <span class="dac-form-required">*</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="privacystatement" id="newsletter-terms" required="" value="I acknowledge that the information provided in this form will be subject to Google&#39;s privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html="">I acknowledge that the information provided in this form will be subject to Google's <a href="https://www.google.com/policies/privacy/" target="_blank">privacy policy</a>.</span>
+                          <span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <script src="./BroadcastReceiver _ Android Developers_files/api.js.téléchargement"></script>
+                      <div class="g-recaptcha" data-sitekey="6Lfc9CkTAAAAAEdusoAjrREyhAgNE1ppGE1Fc5q0"><div style="width: 304px; height: 78px;"><div><iframe src="./BroadcastReceiver _ Android Developers_files/anchor.html" width="304" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <input type="hidden" name="referrer" value="dac">
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails">You have successfully signed up for the latest Android developer news and tips.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div><!--/.dac-modal.newsletter-->
+
+<div data-modal="wechat" class="dac-modal">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle=""></button>
+        </div>
+        <section>
+          
+          <h2 class="norule dac-modal-header-title">Sigue a Google&nbsp;Developers en WeChat</h2>
+        </section>
+      </header>
+      <section class="dac-modal-content figure-center center-img">
+        <img src="./BroadcastReceiver _ Android Developers_files/qr-wechat.png">
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal[dac-modal=wechat]-->
+
+
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle=""></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title">
+            
+            Browse this site in <span class="span-target-lang">Español (América Latina)</span>?
+          </h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText">
+                    
+                    You requested a page in <span class="span-target-lang">Español (América Latina)</span>, but your language preference for this site is <span class="span-current-lang">English</span>.
+                  </p>
+                  <p id="resetLangCta">
+                    
+                    Would you like to change your language preference and browse this site in <span class="span-target-lang">Español (América Latina)</span>? If you want to change your language preference later, use the language menu at the bottom of each page.
+                  </p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" class="yes" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle="">Change Language</button>
+            </a>
+            <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" class="" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle="">Not Now</button>
+            </a>
+          </footer>
+        
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal-->
+
+
+<div data-modal="api-unavailable" class="dac-modal" id="api-unavailable">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle=""></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title">
+            
+            This class requires API level <span class="api-level"></span> or higher
+          </h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <p>
+              
+              This doc is hidden because your selected API level for the documentation is <span class="api-level"></span>. You can change the documentation API level with the selector above the left navigation.
+            </p>
+            
+            <p>For more information about specifying the API level your app requires, read <a href="https://developer.android.com/training/basics/supporting-devices/platforms.html">Supporting Different Platform Versions</a>.</p>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#" class="ok" onclick="return false;">
+              <button class="button dac-primary dac-modal-action ok" data-modal-toggle="">
+                
+                OK, make this page visible
+              </button>
+            </a>
+          </footer>
+        
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal#api-unavailable-->
+
+    
+  </div><!--/#body-content-->
+
+  <!-- Nav Setup -->
+  <script>$('[data-dac-nav]').dacNav();</script>
+  <script type="text/javascript">
+    $('.slideshow-container').dacSlideshow({
+        btnPrev: '.slideshow-prev',
+        btnNext: '.slideshow-next',
+        btnPause: '#pauseButton'
+    });
+
+    $(".feed").dacTabbedList({
+      nav_id: '.feed-nav',
+      frame_id: '.feed-frame'
+    });
+  </script>
+  
+  <script src="./BroadcastReceiver _ Android Developers_files/ytblogger_lists_unified.js.téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/android_metadata_en.js.téléchargement" defer=""></script>
+  
+  <script src="./BroadcastReceiver _ Android Developers_files/lists.js.téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/gms_lists.js.téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/lists.js(1).téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/lists.js(2).téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/lists.js(3).téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/lists.js(4).téléchargement" defer=""></script>
+  <script src="./BroadcastReceiver _ Android Developers_files/saved_resource"></script>
+  <script>
+    // Load localized metadata.
+    (function(lang) {
+      if (lang === 'en') { return; }
+      document.write('<script src="https://developer.android.com/android_metadata_es-419.js?v=2018010403" defer></' + 'script>');
+    })(getLangPref())
+
+    // Add skip to content for accessibility.
+    $('#skip-to-main').click(function() {
+      $('a[name=top]').focus();
+    });
+
+    $('.devsite-utility-footer-language-select').each(function() {
+      $(this).change(function() {
+        changeLangPref(this.value, true)
+        $('.devsite-utility-footer-language').submit();
+      });
+    });
+  </script><script src="./BroadcastReceiver _ Android Developers_files/android_metadata_es-419.js.téléchargement" defer=""></script>
+
+  <script>
+    (function($) {
+      devsite.analytics.InitAnalytics();
+      devsite.navigatingRadio.init();
+      devsite.kennedy.InitializeTabbars();
+      // overflowMenu must be initialized after tabbar.
+      devsite.overflowMenu.init();
+    })(jQuery);
+  </script>
+
+  
+
+
+<div id="survey-box-wrapper">
+  <div class="material-dialog" style="width:270px">
+    <div class="material-dialog-title">
+      Take a short survey?
+    </div>
+    <div class="material-dialog-description">
+      Help us improve the Android developer experience.
+      (Dec 2017 Android Platform &amp; Tools Survey)
+    </div>
+    <div class="material-button-bar">
+      <a class="dac-button dac-primary dac-raised" target="_blank" href="https://goo.gl/UwhSLi">Okay</a>
+      <a class="dac-button" href="https://developer.android.com/reference/android/content/BroadcastReceiver.html#">No thanks</a>
+    </div>
+  </div>
+</div>
+
+
+
+<table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 2px; display: none; top: 3px; position: absolute; left: -1px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="Desafío de reCAPTCHA" src="./BroadcastReceiver _ Android Developers_files/bframe.html" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" name="o445ay6mka3s" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

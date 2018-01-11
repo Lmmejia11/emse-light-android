@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0041)http://www.emse.fr/~picard/cours/android/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="./Developing an Android Context Management Application_files/style.css" type="text/css">
+<link rel="stylesheet" href="./Developing an Android Context Management Application_files/org.css" type="text/css">
+<link rel="stylesheet" href="./Developing an Android Context Management Application_files/print.css" type="text/css" media="print">
+<link rel="shortcut icon" href="http://www.emse.fr/~picard/images/favicon.ico">
+<script type="text/javascript" src="./Developing an Android Context Management Application_files/myScripts.js.téléchargement"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+<meta name="Author" content="Gauthier Picard">
+<title>Developing an Android Context Management Application</title>
+
+</head>
+<body class="no_colour_print">
+<div id="maindiv">
+<div id="head" class="no_colour_print">
+
+<h1 class="maintitle">Developing an Android Context Management Application</h1>
+<h2 class="mainsubtitle">Majeure Informatique - Master «&nbsp;CPS2&nbsp;»</h2>
+</div>
+
+<!--div id="menu" class="hide_print">
+  <a href="index.html" class="menuItem">Présentation</a>&nbsp;&nbsp;
+  <a href="python.html" class="menuItem">Python</a>&nbsp;&nbsp;
+  <a href="android.html" class="menuItem">Android</a>&nbsp;&nbsp;
+  <a href="django.html" class="menuItem">Django</a>&nbsp;&nbsp;
+  <a href="unit.html" class="menuItem">Tests unitaires</a>&nbsp;&nbsp;
+  <!--a href="deployment.html" class="menuItem">D&eacute;ploiement</a>&nbsp;&nbsp;
+  <a href="proto.html" class="menuItem">Prototype</a-->&nbsp;&nbsp;
+  <a href="http://www.emse.fr/~picard/cours/android/tools.html" class="menuItem">Outils</a>&nbsp;&nbsp;
+
+<div id="content">
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="http://www.emse.fr/~picard/cours/android/#orgaa81d4a">1. Introduction</a></li>
+<li><a href="http://www.emse.fr/~picard/cours/android/#org7ac60f5">2. Following the official tutorial</a></li>
+<li><a href="http://www.emse.fr/~picard/cours/android/#orgf53491c">3. Retrieving context information</a></li>
+<li><a href="http://www.emse.fr/~picard/cours/android/#org3d8105e">4. Acting on the environment</a></li>
+<li><a href="http://www.emse.fr/~picard/cours/android/#org33f525b">5. Wrap-up discussion</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-orgaa81d4a" class="outline-2">
+<h2 id="orgaa81d4a"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-orge4dd8d7" class="outline-3">
+<h3 id="orge4dd8d7">Android in a glance</h3>
+<div class="outline-text-3" id="text-orge4dd8d7">
+<p>
+<i>Android</i> is developed since 2007 by Google after they bought the
+self-titled start-up. Based on a Linux kernel, <i>Android</i> is a free platform under <a href="http://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU">GNU GPL2</a> license. The latest version is version 8 named <i>Oreo</i>. The updates are frequent (twice a year).
+</p>
+<p>
+<i>Android</i> is a development platform originally designed for mobile devices, but now expanding its market, including TVs or consoles (non-mobile). It is now the leading mobile platform in terms of number of handsets sold.
+</p>
+<p>
+Application development with <i>Android</i> is mainly in Java (applications, business logic) and XML (for interfaces). It is also possible to develop in C, but by way of specific Java interface.
+</p>
+</div>
+</div>
+<div id="outline-org6ab6d16" class="outline-3">
+<h3 id="org6ab6d16">Desiderata</h3>
+<div class="outline-text-3" id="text-org6ab6d16">
+<p>
+We are interested now in the <i>Android</i> platform because many companies use mobile platforms to develop business dedicated to internal use by the company, or the access to its services by client applications. Mobile devices have replaced the old fixed terminals for many applications, even in the workplace, especially since the influx of tablet PCs.
+</p>
+<p>
+<i>Android</i> is of course not the only development platform for mobile devices. We can mention in particular <a href="http://fr.wikipedia.org/wiki/IOS_(Apple)">iOS</a> from Apple, and <a href="http://fr.wikipedia.org/wiki/Windows_Phone">Windows Phone</a> from Microsoft. However, the GPL license and the free tools available to developers is a good reason for choosing <i>Android</i>.
+</p>
+</div>
+</div>
+<div id="outline-orge88fe62" class="outline-3">
+<h3 id="orge88fe62">Which development environment?</h3>
+<div class="outline-text-3" id="text-orge88fe62">
+<p>
+You're free to use the editor/programming environment of your choice. You must first have the  <a href="http://developer.android.com/sdk/index.html"><i>Android development kit</i></a> (which contains a particular terminal emulator). However, the development in <a href="https://developer.android.com/sdk/index.html"><i>Android Studio</i></a> is highly recommended.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-org7ac60f5" class="outline-2">
+<h2 id="org7ac60f5"><span class="section-number-2">2</span> Following the official tutorial</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-orgd6fdc22" class="outline-3">
+<h3 id="orgd6fdc22">Getting started with Android with the official tutorial</h3>
+<div class="outline-text-3" id="text-orgd6fdc22">
+<p>
+The best way to handle <i>Android</i> is to follow the official tutorial:
+<a href="http://developer.android.com/training/basics/firstapp/index.html">http://developer.android.com/training/basics/firstapp/index.html</a>.
+Although not covering all aspects of development under <i>Android</i> this can put a first foot in the stirrup. This will certainly not be sufficient for your needs, this is why we will discuss other aspects later in the lab.
+</p>
+<p>
+To go further in the discovery of language, you can consult the following sources:
+</p>
+<ul class="org-ul">
+<li>The official API documentation <i>Android</i>: <a href="http://developer.android.com/reference/packages.html">http://developer.android.com/reference/packages.html</a></li>
+<li>Official guides describing all the elements of the API: <a href="http://developer.android.com/guide/components/index.html">http://developer.android.com/guide/components/index.html</a></li>
+<li>A Course in French: <a href="http://romain.raveaux.free.fr/document/Android/androidcours.pdf">http://romain.raveaux.free.fr/document/Android/androidcours.pdf</a></li>
+<li>You can also have a look at the <a href="http://www.emse.fr/~picard/cours/android/android.pdf">handout</a>.</li>
+<li>Finally, the book's <i>The Busy Coder's Guide to Android Development</i> by Mark Murphy is available at the library in french and <a href="http://commonsware.com/Android/Android_3-6-CC.pdf">online</a>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-orgfcc9a51" class="outline-3">
+<h3 id="orgfcc9a51">Write your first Android application</h3>
+<div class="outline-text-3" id="text-orgfcc9a51">
+<p>
+The official tutorial proposes to develop a first application : <code>HelloWorld</code>. It is only designed to be developed in Android Studio. 
+</p>
+<p>
+Go to the <a href="https://developer.android.com/training/basics/firstapp/index.html">official Android tutorial</a> and read the following sections :
+</p>
+<ol class="org-ol">
+<li><a href="https://developer.android.com/training/basics/firstapp/creating-project.html">Creating
+an Android Project</a> : concerns the handling of Android Studio and the command lines of the development kit.</li>
+<li><a href="https://developer.android.com/training/basics/firstapp/running-app.html">Running
+Your Application</a> : presents how to execute the application on a real device or an emulator.</li>
+<li><a href="https://developer.android.com/training/basics/firstapp/building-ui.html">Building
+a Simple User Interface</a> : presents the usage of XML for developing graphical user interfaces (layouts, textfields, buttons, etc.).</li>
+<li><a href="https://developer.android.com/training/basics/firstapp/starting-activity.html">Starting
+Another Activity</a> : illustrates how an application can manage several activities and link them</li>
+</ol>
+</div>
+<div id="outline-org4f2d6d3" class="outline-4 exo">
+<h4 id="org4f2d6d3">Exercise</h4>
+<div class="outline-text-4" id="text-org4f2d6d3">
+<p>
+Follow tutorials 1 to 4 and develop your first app (1h maximum).
+</p>
+</div>
+</div>
+<div id="outline-org170bb82" class="outline-4">
+<h4 id="org170bb82">References</h4>
+<div class="outline-text-4" id="text-org170bb82">
+<ul class="org-ul">
+<li><a href="https://developer.android.com/training/basics/firstapp/index.html">https://developer.android.com/training/basics/firstapp/index.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-orgf53491c" class="outline-2">
+<h2 id="orgf53491c"><span class="section-number-2">3</span> Retrieving context information</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-orgee9e3ed" class="outline-3">
+<h3 id="orgee9e3ed">Create an Android context management application</h3>
+<div class="outline-text-3" id="text-orgee9e3ed">
+<p>
+In the remainder of this lab we will develop an Android app to sense the context of an ambient room (with light level sensor, noise level sensor and a light actuator). This idea is to first sense the state of a given room and then to act on it manually. Later on, we will add some automatic context-rule triggers to act on the rooms.
+</p>
+</div>
+<div id="outline-org6b9c753" class="outline-4">
+<h4 id="org6b9c753">Infrastructure</h4>
+<div class="outline-text-4" id="text-org6b9c753">
+<p>
+The ambient computing environment is the following:
+</p>
+<ol class="org-ol">
+<li>Several <b>rooms</b> (identified by unique <code>room-id</code>) are equipped with:
+<ul class="org-ul">
+<li>Arduino sensors providing light and noise levels</li>
+<li>Arduino actuators to switch on/off lights in rooms</li>
+</ul></li>
+<li>A <b>context server</b> that:
+<ul class="org-ul">
+<li>stores the data retrieved from sensors</li>
+<li>publishes the state of rooms and allows controlling lights using the following URLs: 
+<ul class="org-ul">
+<li><code>http://x.x.x.x:port/api/rooms/</code> lists the rooms in a JSON file (GET request)</li>
+<li><code>http://x.x.x.x:port/api/rooms/&lt;room-id&gt;/</code> returns a JSON file with the details of the given room  (GET request)</li>
+<li><code>http://x.x.x.x:port/api/rooms/&lt;room-id&gt;/switchLight</code> for switching on/off the light (POST request)</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>
+A room <i>json</i> file is structured as follows :
+</p>
+<div class="org-src-container">
+<pre class="src src-json">{"id":1,"light":{"id":1,"level":20,"status":"ON"},"noise":{"id":1,"level":30,"status":"OFF"}}
+</pre>
+</div>
+<p>
+As to emulate the context server, without needing to develop and deploy it (it will be done in other labs), we provide a <i>micro</i> web server (based on <a href="http://www.jibble.org/miniwebserver/">java mini web server</a>). To deploy it on your computer on port 8083, download the <a href="http://www.emse.fr/~picard/cours/android/files/test-server.zip">ZIP file</a>, decompress it and execute it using the following command from the directory in which are the JAR and the <code>contents</code> directory:
+</p>
+<pre class="example">java -jar test-server.jar 8083
+
+</pre>
+<p>
+Within this infrastructure, the Android phone will play the role of a monitor and a controller by requesting information on the context server (and not directly the Arduino boards).
+</p>
+</div>
+</div>
+<div id="outline-org884233d" class="outline-4">
+<h4 id="org884233d">Overall architecture of the android application to develop</h4>
+<div class="outline-text-4" id="text-org884233d">
+<p>
+By following this tutorial, you will develop:
+</p>
+<ul class="org-ul">
+<li>A java class <code>RoomContextState</code> that encapsulates the state of a room</li>
+<li>An Android <code>Activity</code>, called <code>ContextManagementActivity.java</code> that manages the interaction with the user by providing the following interface :</li>
+</ul>
+<div class="figure">
+<p><img src="./Developing an Android Context Management Application_files/activity-main.png" alt="activity-main.png">
+</p>
+<p><span class="figure-number">Figure 1: </span>The main activity to monitor and control the ambient environment</p>
+</div>
+<ul class="org-ul">
+<li>A java class <code>RoomContextRule</code> that represents context rules that have to be triggered depending on the state on the room(s).</li>
+<li>A <code>ContextAlarmReceiver</code> class that regularly senses the context and automatically applies the context rules.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-org982d51c" class="outline-3">
+<h3 id="org982d51c">The <code>RoomContextState</code> class and the main activity</h3>
+<div class="outline-text-3" id="text-org982d51c">
+<p>
+First of all, we will create a new Android project.
+</p>
+</div>
+<div id="outline-org8d05784" class="outline-4 exo">
+<h4 id="org8d05784">Exercise</h4>
+<div class="outline-text-4" id="text-org8d05784">
+<p>
+Create a new project with a main activity called <code>ContextManagementActivity</code>. Choose the minimum API 18.
+</p>
+</div>
+</div>
+<div id="outline-org3238860" class="outline-4">
+<h4 id="org3238860">The <code>RoomContextState</code> class</h4>
+<div class="outline-text-4" id="text-org3238860">
+<p>
+This class is quite simple. It only stores the information corresponding to a room: name (<code>String</code>), status of the light ("<code>on</code>" or "<code>off</code>"), light level (<code>int</code>) and noise level (<code>float</code>).
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">RoomContextState</span> {
+
+    <span class="org-keyword">private</span> <span class="org-type">String</span> <span class="org-variable-name">room</span>;
+    <span class="org-keyword">private</span> <span class="org-type">String</span> <span class="org-variable-name">status</span>;
+    <span class="org-keyword">private</span> <span class="org-type">int</span> <span class="org-variable-name">light</span>;
+    <span class="org-keyword">private</span> <span class="org-type">float</span> <span class="org-variable-name">noise</span>;
+
+    <span class="org-keyword">public</span> <span class="org-function-name">RoomContextState</span>(<span class="org-type">String</span> <span class="org-variable-name">room</span>, <span class="org-type">String</span> <span class="org-variable-name">status</span>, <span class="org-type">int</span> <span class="org-variable-name">light</span>, <span class="org-type">float</span> <span class="org-variable-name">noise</span>) {
+        <span class="org-keyword">super</span>();
+        <span class="org-keyword">this</span>.room = room;
+        <span class="org-keyword">this</span>.status = status;
+        <span class="org-keyword">this</span>.light = light;
+        <span class="org-keyword">this</span>.noise = noise;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">String</span> <span class="org-function-name">getRoom</span>() {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.room;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">String</span> <span class="org-function-name">getStatus</span>() {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.status;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">int</span> <span class="org-function-name">getLight</span>() {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.light;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">float</span> <span class="org-function-name">getNoise</span>() {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.noise;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-orgf2fc970" class="outline-4 exo">
+<h4 id="orgf2fc970">Exercise</h4>
+<div class="outline-text-4" id="text-orgf2fc970">
+<p>
+Add the <code>RoomContextState</code> class to your project.
+</p>
+</div>
+</div>
+<div id="outline-orgaff086c" class="outline-4">
+<h4 id="orgaff086c">The <code>ContextManagementActivity</code></h4>
+<div class="outline-text-4" id="text-orgaff086c">
+<p>
+The main activity of our context management application will be a simple <code>Activity</code> with few views. We will first create the layout and its required resources (icons, strings, etc.) and then focus on the behavior of the app.
+</p>
+<p>
+Initially, your activity java code should look like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">ContextManagementActivity</span> <span class="org-keyword">extends</span> <span class="org-type">Activity</span> {
+
+    <span class="org-c-annotation">@Override</span>
+    <span class="org-keyword">protected</span> <span class="org-type">void</span> <span class="org-function-name">onCreate</span>(<span class="org-type">Bundle</span> <span class="org-variable-name">savedInstanceState</span>) {
+        <span class="org-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    <span class="org-c-annotation">@Override</span>
+    <span class="org-keyword">public</span> <span class="org-type">boolean</span> <span class="org-function-name">onCreateOptionsMenu</span>(<span class="org-type">Menu</span> <span class="org-variable-name">menu</span>) {
+        <span class="org-comment-delimiter">// </span><span class="org-comment">Inflate the menu; this adds items to the action bar if it is present.</span>
+        getMenuInflater().inflate(R.menu.main, menu);
+        <span class="org-keyword">return</span> <span class="org-constant">true</span>;
+    }
+
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-org5820caf" class="outline-4">
+<h4 id="org5820caf">The main layout</h4>
+<div class="outline-text-4" id="text-org5820caf">
+<p>
+We propose to use the following layout (e.g. <code>context_management_activity.xml</code>) for our main activity. The idea is to have a text edit field to ask for a room, and depending on the room it will display the two values (light and noise), the state off the light (using a bulb image) and two buttons to switch on/off the light and switch on/off the silent mode of the mobile.
+</p>
+<div class="figure">
+<p><img src="./Developing an Android Context Management Application_files/layout.png" alt="layout.png">
+</p>
+</div>
+</div>
+</div>
+<div id="outline-orgffabc4d" class="outline-4 exo">
+<h4 id="orgffabc4d">Exercise</h4>
+<div class="outline-text-4" id="text-orgffabc4d">
+<p>
+Download the <a href="http://www.emse.fr/~picard/cours/android/files/activity_main.xml"><code>activity_main.xml</code></a> file and use it as your activity layout. You will need to define some string values and icons (use Android Studio Wizards to do so). You can use the following icons for <a href="http://www.emse.fr/~picard/cours/android/files/ic_bulb_on.png">light on</a> and <a href="http://www.emse.fr/~picard/cours/android/files/ic_bulb_off.png">light off</a> by copy/paste them into <code>res/drawable-hdpi</code> folder.
+</p>
+<p>
+Execute your app on the Android emulator to check the layout conformity.
+</p>
+</div>
+</div>
+<div id="outline-org5d5b6ab" class="outline-4">
+<h4 id="org5d5b6ab">Getting the room id from the <code>EditText</code> view</h4>
+<div class="outline-text-4" id="text-org5d5b6ab">
+<p>
+The first thing to do when a user types a room id into the <code>EditText</code> is to get it into a <code>String</code> value. To do so we need to add an action to the <i>Check</i> button:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">((<span class="org-type">Button</span>) findViewById(R.id.buttonCheck)).setOnClickListener(<span class="org-keyword">new</span> <span class="org-constant">View</span>.<span class="org-type">OnClickListener</span>() {
+    <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">onClick</span>(<span class="org-type">View</span> <span class="org-variable-name">v</span>) {
+        room = ((<span class="org-type">EditText</span>) findViewById(R.id.editText1))
+                .getText().toString();
+        retrieveRoomContextState(room);
+    }
+});
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-orgbc45f61" class="outline-4 exo">
+<h4 id="orgbc45f61">Exercise</h4>
+<div class="outline-text-4" id="text-orgbc45f61">
+<p>
+Add the following code in the <code>onCreate</code> method of your activity. You will need to create a class field named <code>room</code> and a method named <code>retrieveRoomContextState</code> in your activity. For now, keep this method empty.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-orge80baf3" class="outline-3">
+<h3 id="orge80baf3">Retrieving information from the context server</h3>
+<div class="outline-text-3" id="text-orge80baf3">
+<p>
+Now our activity is able to ask for a room, and we want to get the context of this room from the context server. As said before, the server is a web server answering HTTP GET requests only. The idea here is to create tasks (<a href="http://developer.android.com/reference/android/os/AsyncTask.html"><code>AsyncTask</code></a>) that will send HTTP GET requests to the server for the room that has been typed by the user. To do so we will use the HTTP classes embedded in the Android API.
+</p>
+</div>
+<div id="outline-org24e9e6d" class="outline-4">
+<h4 id="org24e9e6d">Setting internet permissions</h4>
+<div class="outline-text-4" id="text-org24e9e6d">
+<p>
+Before developing the context retriever, since we will use HTTP protocol, we need to set the proper permission to access Internet by adding the following lines in our <code>AndroidManifest.xml</code> file (before <code>&lt;application&gt;</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">uses-permission</span> <span class="org-nxml-attribute-prefix">android</span><span class="org-nxml-attribute-colon">:</span><span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">android.permission.INTERNET</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-tag-delimiter">&gt;</span>
+   <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">uses-permission</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-org7a1ec6e" class="outline-4">
+<h4 id="org7a1ec6e">Setting <code>build.gradle</code> to use <code>volley</code></h4>
+<div class="outline-text-4" id="text-org7a1ec6e">
+<p>
+We will use the <a href="http://code.google.com/p/google-gson/"><code>volley</code></a> library to send and read HTTP response files. To use this library, simply add the following line in the <code>dependencies</code> entry of the <code>build.gradle</code> file:
+</p>
+<pre class="example">compile 'com.android.volley:volley:1.0.0'
+
+</pre>
+</div>
+</div>
+<div id="outline-org4944ea1" class="outline-4">
+<h4 id="org4944ea1">Sending a simple HTTP request</h4>
+<div class="outline-text-4" id="text-org4944ea1">
+<p>
+Sending an HTTP request and parsing its result is made very easy with volley.
+</p>
+</div>
+</div>
+<div id="outline-orgc92e6af" class="outline-4 exo">
+<h4 id="orgc92e6af">Exercise</h4>
+<div class="outline-text-4" id="text-orgc92e6af">
+<p>
+Handle volley simple request following the official tutorial : <a href="https://developer.android.com/training/volley/">https://developer.android.com/training/volley/</a>
+</p>
+<p>
+For testing you should set the <code>CONTEXT_SERVER_URL</code> constant to <a href="http://10.0.2.2:8083/">http://10.0.2.2:8083/</a>. In fact, the IP of the machine executing the Android emulator is 10.0.2.2. You can also use your own context server!
+</p>
+</div>
+</div>
+<div id="outline-org8c20b01" class="outline-4">
+<h4 id="org8c20b01">Getting the result of an HTTP request</h4>
+<div class="outline-text-4" id="text-org8c20b01">
+<p>
+Sending HTTP GET requests is not sufficient to dialog with our context server. For instance, we need to know the status of the light (switched on/off) to attach the right action to the "switch light on/off" button. To do so we need to analyze the content of the HTTP GET request we send. Actually, the volley framework already provides the result of an HTTP GET request as a <code>String</code> object or a <code>JSONObject</code>, on reception of the server response.
+</p>
+<p>
+First let us consider we want to extract the status of the light in a room. We can proceed like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-type">String</span> <span class="org-variable-name">url</span> = CONTEXT_SERVER_URL + <span class="org-string">"/"</span> + room + <span class="org-string">"/"</span>;
+
+<span class="org-comment-delimiter">//</span><span class="org-comment">get room sensed context</span>
+<span class="org-type">JsonObjectRequest</span> <span class="org-variable-name">contextRequest</span> = <span class="org-keyword">new</span> <span class="org-type">JsonObjectRequest</span>
+        (<span class="org-constant">Request</span>.<span class="org-constant">Method</span>.GET, url, <span class="org-constant">null</span>, <span class="org-keyword">new</span> <span class="org-constant">Response</span>.<span class="org-type">Listener</span>&lt;<span class="org-type">JSONObject</span>&gt;() {
+
+            <span class="org-c-annotation">@Override</span>
+            <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">onResponse</span>(<span class="org-type">JSONObject</span> <span class="org-variable-name">response</span>) {
+                <span class="org-keyword">try</span> {
+                    <span class="org-type">String</span> <span class="org-variable-name">id</span> = response.getString(<span class="org-string">"id"</span>).toString();
+                    <span class="org-type">int</span> <span class="org-variable-name">lightLevel</span> = Integer.parseInt(response.getJSONObject(<span class="org-string">"light"</span>).get(<span class="org-string">"level"</span>).toString());
+                    <span class="org-type">String</span> <span class="org-variable-name">lightStatus</span> = response.getJSONObject(<span class="org-string">"light"</span>).get(<span class="org-string">"status"</span>).toString();
+                    <span class="org-comment-delimiter">// </span><span class="org-comment">do something with results...</span>
+                    <span class="org-comment-delimiter">// </span><span class="org-comment">notify main activity for update...</span>
+                } <span class="org-keyword">catch</span> (<span class="org-type">JSONException</span> <span class="org-variable-name">e</span>) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, <span class="org-keyword">new</span> <span class="org-constant">Response</span>.<span class="org-type">ErrorListener</span>() {
+
+            <span class="org-c-annotation">@Override</span>
+            <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">onErrorResponse</span>(<span class="org-type">VolleyError</span> <span class="org-variable-name">error</span>) {
+                <span class="org-comment-delimiter">// </span><span class="org-comment">Some error to access URL : Room may not exists...</span>
+            }
+        });
+queue.add(contextRequest);
+</pre>
+</div>
+<p>
+In the same way we can emit POST request to switch on/off lights (see volley documentation).
+</p>
+</div>
+</div>
+<div id="outline-org36b187e" class="outline-4 exo">
+<h4 id="org36b187e">Exercise</h4>
+<div class="outline-text-4" id="text-org36b187e">
+<p>
+Create a new class named <code>RoomContextHttpManager</code> using the previous code, by creating at least two methods <code>public void switchLight(RoomContextState state, String room)</code> and <code>public void retrieveRoomContextState(String room)</code>. It must encapsulate a <code>RequestQueue</code>, and notify the <code>ContextManagementActivity</code> on reception using a method called <code>public void onUpdate(RoomContextState context)</code>, so that it can refresh the view. 
+</p>
+</div>
+</div>
+<div id="outline-orgc7e2b01" class="outline-4">
+<h4 id="orgc7e2b01">Updating the context and the view</h4>
+<div class="outline-text-4" id="text-orgc7e2b01">
+<p>
+In background, the http requests will be performed, and will eventually return a new context state instance using the <code>onUpdate</code> method of the calling activity. Once this instance received, the activity should update the content of its view with the current values and status and display the buttons to act on the room and the phone ringer.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">private</span> <span class="org-type">void</span> <span class="org-function-name">updateContextView</span>() {
+    <span class="org-keyword">if</span> (<span class="org-keyword">this</span>.state != <span class="org-constant">null</span>) {
+        contextView.setVisibility(<span class="org-constant">View</span>.VISIBLE);
+        ((<span class="org-type">TextView</span>) findViewById(R.id.textViewLightValue)).setText(Integer
+                .toString(state.getLightLevel()));
+        ((<span class="org-type">TextView</span>) findViewById(R.id.textViewNoiseValue)).setText(Float
+                .toString(state.getNoiseLevel()));
+        <span class="org-keyword">if</span> (state.getLightStatus().equals(<span class="org-constant">RoomContextState</span>.ON))
+            image.setImageResource(R.drawable.ic_bulb_on);
+        <span class="org-keyword">else</span>
+            image.setImageResource(R.drawable.ic_bulb_off);
+    } <span class="org-keyword">else</span> {
+        initView();
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-org45977c0" class="outline-4 exo">
+<h4 id="org45977c0">Exercise</h4>
+<div class="outline-text-4" id="text-org45977c0">
+<p>
+Add the code for the <code>onUpdate</code>  and <code>updateContextView</code> methods in your context management activity and test it properly using the mini server. You can now add <a href="http://developer.android.com/guide/topics/ui/notifiers/toasts.html"><code>Toast</code></a> to signal problems (but you should require adding some methods to your asynchronous tasks and activity).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-org3d8105e" class="outline-2">
+<h2 id="org3d8105e"><span class="section-number-2">4</span> Acting on the environment</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-org32eba92" class="outline-3">
+<h3 id="org32eba92">Acting on the environment (manually)</h3>
+<div class="outline-text-3" id="text-org32eba92">
+<p>
+We have now a nice view which updates when the user asks for context information for a particular room. We will now add some action to the button. They have already been attached to views (in <code>layout.xml</code>) but still need to be implemented in the activity.
+</p>
+<p>
+<code>switchLight</code> simply consists in performing HTTP GET request whom path depends on the status of the light in the room. You can remark here we ask for a context update after pressing the button (<code>retrieveRoomContextState</code>) to check the action on the environment.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">switchLight</span>(<span class="org-type">View</span> <span class="org-variable-name">view</span>) {
+    roomHttpManager.switchLight(state,room);
+    roomHttpManager.retrieveRoomContextState(room);
+}
+</pre>
+</div>
+<p>
+The switch the ringer on/off, we use the <a href="http://developer.android.com/reference/android/media/AudioManager.html"><code>AudioManager</code></a> of the Android OS. But due to recent change in the security policies in Android, we have to care with runtime permission check:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">switchRinger</span>(<span class="org-type">View</span> <span class="org-variable-name">view</span>) {
+
+    <span class="org-type">NotificationManager</span> <span class="org-variable-name">notificationManager</span> =
+            (<span class="org-type">NotificationManager</span>) <span class="org-keyword">this</span>.getSystemService(<span class="org-constant">Context</span>.NOTIFICATION_SERVICE);
+
+    <span class="org-keyword">if</span> (<span class="org-constant">Build</span>.<span class="org-constant">VERSION</span>.SDK_INT &gt;= <span class="org-constant">Build</span>.<span class="org-constant">VERSION_CODES</span>.M
+            &amp;&amp; <span class="org-negation-char">!</span>notificationManager.isNotificationPolicyAccessGranted()) {
+        <span class="org-type">Intent</span> <span class="org-variable-name">intent</span> = <span class="org-keyword">new</span> <span class="org-type">Intent</span>(
+                <span class="org-constant">android</span>.<span class="org-constant">provider</span>.<span class="org-constant">Settings</span>
+                        .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+        startActivity(intent);
+    }
+
+
+    <span class="org-type">AudioManager</span> <span class="org-variable-name">audioManager</span> = (<span class="org-type">AudioManager</span>) getSystemService(AUDIO_SERVICE);
+    <span class="org-type">int</span> <span class="org-variable-name">mode</span> = audioManager.getRingerMode();
+    <span class="org-keyword">if</span> (mode == <span class="org-constant">AudioManager</span>.RINGER_MODE_SILENT)
+        audioManager.setRingerMode(<span class="org-constant">AudioManager</span>.RINGER_MODE_NORMAL);
+    <span class="org-keyword">else</span> {
+        audioManager.setRingerMode(<span class="org-constant">AudioManager</span>.RINGER_MODE_SILENT);
+        audioManager.setRingerMode(<span class="org-constant">AudioManager</span>.RINGER_MODE_VIBRATE);
+    }
+}
+</pre>
+</div>
+<p>
+You also require to add the following permissions to your manifest file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">uses-permission</span> <span class="org-nxml-attribute-prefix">android</span><span class="org-nxml-attribute-colon">:</span><span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">android.permission.ACCESS_NOTIFICATION_POLICY</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-tag-slash">/</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">uses-permission</span> <span class="org-nxml-attribute-prefix">android</span><span class="org-nxml-attribute-colon">:</span><span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">android.permission.VIBRATE</span><span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+</div>
+<div id="outline-org6c630d1" class="outline-4 exo">
+<h4 id="org6c630d1">Exercise</h4>
+<div class="outline-text-4" id="text-org6c630d1">
+<p>
+Add these actions to your buttons and test the result using the mini server.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-org90a982a" class="outline-3">
+<h3 id="org90a982a">Acting on the environment (automatically)</h3>
+<div class="outline-text-3" id="text-org90a982a">
+<p>
+We have now an application which complete in the sense it both provides way to sense and to act on the environment. However, it should be nice to add some "intelligence" to it, so that decisions to act on the environment are automatic, and do not require pressing a button. As to make it automatic, we will define so called <code>RoomContextRule</code> as action-condition rules. Since we don't exactly know what are all the conditions and all the actions for these rules we will simply define an abstract framework that should be concreted to define rules. 
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">abstract</span> <span class="org-keyword">class</span> <span class="org-type">RoomContextRule</span> {
+
+    <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">apply</span>(<span class="org-type">RoomContextState</span> <span class="org-variable-name">context</span>) {
+        <span class="org-keyword">if</span> (condition(context))
+            action();
+    }
+
+    <span class="org-keyword">protected</span> <span class="org-keyword">abstract</span> <span class="org-type">boolean</span> <span class="org-function-name">condition</span>(<span class="org-type">RoomContextState</span> <span class="org-variable-name">context</span>);
+
+    <span class="org-keyword">protected</span> <span class="org-keyword">abstract</span> <span class="org-type">void</span> <span class="org-function-name">action</span>();
+
+}
+</pre>
+</div>
+<p>
+Moreover, since an application may require several rules, we will store them in an <code>ArrayList</code> named <code>rules</code>. To define a new rule that switch on the silent mode when the noise level is greater than 1.0 (someone is talking in the room) and the light level is greater than 100 (there is light activity), you can simply code the following anonymous instance:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">rules.add(<span class="org-keyword">new</span> <span class="org-type">RoomContextRule</span>() {
+    <span class="org-c-annotation">@Override</span>
+    <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">apply</span>(<span class="org-type">RoomContextState</span> <span class="org-variable-name">roomContextState</span>) {
+        <span class="org-keyword">super</span>.apply(roomContextState);
+        <span class="org-keyword">if</span> (condition(roomContextState))
+            display(<span class="org-keyword">this</span> + <span class="org-string">" applies: silent mode switched on!"</span>);
+    }
+
+    <span class="org-c-annotation">@Override</span>
+    <span class="org-keyword">protected</span> <span class="org-type">boolean</span> <span class="org-function-name">condition</span>(<span class="org-type">RoomContextState</span> <span class="org-variable-name">roomContextState</span>) {
+        <span class="org-keyword">return</span> roomContextState.getLight() &gt; 100
+                &amp;&amp; roomContextState.getNoise() &gt; 1.0;
+    }
+
+    <span class="org-c-annotation">@Override</span>
+    <span class="org-keyword">protected</span> <span class="org-type">void</span> <span class="org-function-name">action</span>() {
+        ((<span class="org-type">AudioManager</span>) getApplicationContext().getSystemService(
+                <span class="org-constant">Context</span>.AUDIO_SERVICE))
+                .setRingerMode(<span class="org-constant">AudioManager</span>.RINGER_MODE_SILENT);
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">String</span> <span class="org-function-name">toString</span>() {
+        <span class="org-keyword">return</span> <span class="org-string">"Rule 1"</span>;
+    }
+});
+</pre>
+</div>
+</div>
+<div id="outline-org604a205" class="outline-4 exo">
+<h4 id="org604a205">Exercise</h4>
+<div class="outline-text-4" id="text-org604a205">
+<p>
+Create as many rules as you want in your activity (in the <code>onCreate</code> method for instance) and check them all (in the order of definition) each time the context is updated. Test them using the mini server.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-org6586216" class="outline-3">
+<h3 id="org6586216">Sensing and acting on background (<i>advanced level</i>)</h3>
+<div class="outline-text-3" id="text-org6586216">
+<p>
+Brilliant! Your application is able to retrieve the context for a given room and apply some context rules to act on the environment automatically. But let us put more "smart" in your application. Why waiting for the user is type in a room id to retrieve the environment? We can easily extend and reuse our code to retrieve automatically the context for each room (as far as we know its id) and then apply automatically the context rules again.
+</p>
+<p>
+To do so, we will implement a so called <a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html"><code>BroadcastReceiver</code></a> class that will receive periodic alarms from an <a href="http://developer.android.com/reference/android/app/AlarmManager.html"><code>AlarmManager</code></a>. 
+</p>
+<p>
+We will implement the <code>BroadcastReceiver</code> interface in a class named <code>RoomContextAlarmReceiver</code>. Each time an alarm is sent, this class (in the <code>onReceive</code> method) will launch asynchronous tasks for retrieving the context (as our activity does) and will notify the user using the <code>Notification</code> framework of Android OS each time a rule is triggered, and this for each room of the system.
+</p>
+</div>
+<div id="outline-org6618ed0" class="outline-4">
+<h4 id="org6618ed0">Retrieving the context</h4>
+<div class="outline-text-4" id="text-org6618ed0">
+<p>
+Essentially the context alarm receiver will do the same thing than our activity when receiving an alarm: using a <code>RoomContextHttpManager</code>, triggering the proper rules when receiving the new room context.
+</p>
+<p>
+However, the <code>RoomContextHttpManager</code> class can inform <code>ContextManagementActivity</code> class and not <code>RoomContextAlarmReceiver</code>. So we need a little bit of refactoring here!
+</p>
+</div>
+</div>
+<div id="outline-org1f7d3bd" class="outline-4 exo">
+<h4 id="org1f7d3bd">Exercise</h4>
+<div class="outline-text-4" id="text-org1f7d3bd">
+<ol class="org-ol">
+<li>Create a new <code>RoomContextStateListener</code> interface with (at least) an <code>onUpdate(RoomContextState roomContextState)</code> method.</li>
+<li>Modify the <code>RoomContextHttpManager</code> so that it send results to a list of <code>RoomContextStateListener</code> and not a <code>ContextManagementActivity</code>.</li>
+<li>Modify the <code>ContextManagementActivity</code> class so that it now implements the <code>RoomContextStateListener</code> interface.</li>
+<li>Make your <code>RoomContextAlarmReceiver</code> implement the <code>RoomContextStateListener</code> interface.</li>
+<li>Fix possible compilation errors due to this refactoring.</li>
+</ol>
+</div>
+</div>
+<div id="outline-org303cf40" class="outline-4">
+<h4 id="org303cf40">Notifying the user</h4>
+<div class="outline-text-4" id="text-org303cf40">
+<p>
+Now your task is able to send results to any <code>ContextRetrieverRoomContextStateListener</code>. We will now use the Android notification framework to inform the user of a triggering, since the app is doing this automatically now. We can define the following method that should be called each time a rule is triggered:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">private</span> <span class="org-type">void</span> <span class="org-function-name">notify</span>(<span class="org-type">Context</span> <span class="org-variable-name">context</span>, <span class="org-type">RoomContextRule</span> <span class="org-variable-name">rule</span>, <span class="org-type">String</span> <span class="org-variable-name">room</span>) {
+    <span class="org-constant">NotificationCompat</span>.<span class="org-type">Builder</span> <span class="org-variable-name">mBuilder</span> = <span class="org-keyword">new</span> <span class="org-constant">NotificationCompat</span>.<span class="org-type">Builder</span>(
+            context).setSmallIcon(R.drawable.notification_icon)
+            .setContentTitle(<span class="org-string">"AmI Context Rule Triggered"</span>)
+            .setContentText(rule + <span class="org-string">" is applied for room "</span> + room + <span class="org-string">"!"</span>);
+    mBuilder.setContentIntent(<span class="org-constant">null</span>);
+    mBuilder.setDefaults(<span class="org-constant">Notification</span>.DEFAULT_SOUND);
+    mBuilder.setAutoCancel(<span class="org-constant">true</span>);
+    <span class="org-type">NotificationManager</span> <span class="org-variable-name">mNotificationManager</span> = (<span class="org-type">NotificationManager</span>) context
+            .getSystemService(<span class="org-constant">Context</span>.NOTIFICATION_SERVICE);
+    mNotificationManager.notify(++count, mBuilder.build());
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-org084780d" class="outline-4 exo">
+<h4 id="org084780d">Exercise</h4>
+<div class="outline-text-4" id="text-org084780d">
+<p>
+Add the <code>notify</code> method to the <code>ContexAlarmReceiver</code> class and modify your code so that the user is notify each time a rule is triggered.
+</p>
+</div>
+</div>
+<div id="outline-org7495b34" class="outline-4">
+<h4 id="org7495b34">Setting up the alarm manager</h4>
+<div class="outline-text-4" id="text-org7495b34">
+<p>
+This alarm manager will emit alarm every 10 seconds to an instance of the class <code>ContextAlarmReceiver</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span class="org-type">Intent</span> <span class="org-variable-name">i</span> = <span class="org-keyword">new</span> <span class="org-type">Intent</span>(<span class="org-keyword">this</span>, RoomContextStateAlarmReceiver.<span class="org-keyword">class</span>);
+<span class="org-type">PendingIntent</span> <span class="org-variable-name">pi</span> = PendingIntent.getBroadcast(<span class="org-keyword">this</span>, 0, i, 0);
+<span class="org-type">AlarmManager</span> <span class="org-variable-name">am</span> = (<span class="org-type">AlarmManager</span>) getSystemService(ALARM_SERVICE);
+am.cancel(pi); <span class="org-comment-delimiter">// </span><span class="org-comment">cancel any existing alarms</span>
+am.setInexactRepeating(<span class="org-constant">AlarmManager</span>.ELAPSED_REALTIME,
+        SystemClock.elapsedRealtime() + 10000, 10000, pi);
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-org6ede633" class="outline-4 exo">
+<h4 id="org6ede633">Exercise</h4>
+<div class="outline-text-4" id="text-org6ede633">
+<p>
+Add this code to your activity and test the automatic triggering and the notifications.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-org33f525b" class="outline-2">
+<h2 id="org33f525b"><span class="section-number-2">5</span> Wrap-up discussion</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Now you're done with the tutorial!
+Let us summarize what you have done.
+</p>
+<ol class="org-ol">
+<li>You have been introduced to Android programming</li>
+<li>You have developed an application capable of retrieving context information from a context server using a dedicated (simplistic) API</li>
+<li>You have extended this application to trigger context rules that may act on the environment (either the phone, or the actuators in the rooms)</li>
+<li>You have extended this application to trigger automatically these rules and thus notify the user</li>
+</ol>
+<p>
+Of course this introductory application has several limitations:
+</p>
+<ol class="org-ol">
+<li>The context is simple (only few numerical values): we can imagine more complex context representations (cf. AmI course), like using Semantic Web technologies.</li>
+<li>The context server only provides a simple API (e.g. we cannot automatically now the list of all the rooms): this can be extended using a real web server (instead of our mini test server) developed using a real data oriented API using REST or RDF, for instance</li>
+<li>The rules are hardcoded: we can imagine adding a rule-edition activity to help the user design/choose its own rules.</li>
+<li>There is no really context inference, only condition-action: we can add richer context inference engine capable of producing new facts and acting more subtly.</li>
+<li>The rules can be contradictory: a consistency checking could be implemented so that users cannot defined contradictory rules (in their own phone and/or with the other phones), using Semantic Web technologies for instance.</li>
+</ol>
+<p>
+So now, you know what to do next ;)
+</p>
+</div>
+</div>
+</div><hr>
+<a class="liensPage" href="mailto:gauthier.picard@emse.fr">Gauthier Picard</a>, December 2017</div>
+<div id="footer" class="section">
+<p class="update"><!--?php setlocale(LC_ALL,'en_EN'); echo "Last Update: ".date("j F Y", getlastmod())." at ".date("H:i:s", getlastmod());?--></p>
+</div>
+
+
+</body></html>

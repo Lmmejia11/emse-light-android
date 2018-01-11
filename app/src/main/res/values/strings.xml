@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">light-android</string>
+    <string name="lightonoff">light on/off</string>
+    <string name="ringonoff">ringer on/off</string>
+    <string name="modeonoff">silence-mode on/off</string>
+    <string name="image_content_description">!image_content_description</string>
+    <string name="noiseLevel">Noise level: </string>
+    <string name="light">Light level: </string>
+    <string name="ok">Check</string>
+    <string name="enter_room">Enter Room #</string>
+    <string name="waiting">waiting</string>
+</resources>
